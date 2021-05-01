@@ -48,6 +48,9 @@ map <LEADER>j <C-w>j
 "向下移动一个分屏
 map <LEADER>k <C-w>k
 
+nnoremap <F3> :NERDTreeToggle<CR>
+
+
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

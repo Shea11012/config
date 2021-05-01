@@ -8,7 +8,7 @@ fi
 
 
 echo "cp nvim config to $home/.config...";
-cp -r nvim $home/.config
+cp -R ./nvim $home/.config/nvim
 
 echo "download vim plugin manager...";
 if command -v nvim > /dev/null 2>&1; then
