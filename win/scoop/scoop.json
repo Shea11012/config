@@ -1,0 +1,325 @@
+{
+  "apps": [
+    {
+      "Source": "apps",
+      "Name": "7zip",
+      "Version": "22.00",
+      "Updated": "2022-06-26T02:46:03.6703957+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "btop",
+      "Version": "1.0.4",
+      "Updated": "2022-12-05T23:50:15.6699326+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "clash-win",
+      "Version": "0.20.11",
+      "Updated": "2022-12-05T23:50:15.6699326+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "copyq",
+      "Version": "6.1.0",
+      "Updated": "2022-06-27T02:34:31.7069709+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "dark",
+      "Version": "3.11.2",
+      "Updated": "2022-06-26T02:46:56.2060751+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "dbeaver",
+      "Version": "22.1.0",
+      "Updated": "2022-06-26T02:55:46.2054993+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "draw.io",
+      "Version": "19.0.3",
+      "Updated": "2022-06-30T16:02:08.0824089+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "everything",
+      "Version": "1.4.1.1017",
+      "Updated": "2022-06-26T02:47:46.9689684+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "geekuninstaller",
+      "Version": "1.5.0.160",
+      "Updated": "2022-08-25T15:54:58.3883882+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "git",
+      "Version": "2.36.1.windows.1",
+      "Updated": "2022-06-26T02:46:20.0300162+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "innounp",
+      "Version": "0.50",
+      "Updated": "2022-06-26T02:49:20.3066458+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "irfanview",
+      "Version": "4.62",
+      "Updated": "2022-09-08T22:49:29.6439712+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "jetbrains-mono",
+      "Version": "2.242",
+      "Updated": "2022-02-10T06:56:24.6400795+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "JetBrainsMono-NF",
+      "Version": "2.1.0",
+      "Updated": "2022-06-26T02:44:44.3284967+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "kdeconnect",
+      "Version": "22.08.0",
+      "Updated": "2022-11-07T23:16:08.7859447+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "lazygit",
+      "Version": "0.35",
+      "Updated": "2022-09-07T12:38:40.8054839+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json",
+      "Name": "oh-my-posh",
+      "Version": "12.26.8",
+      "Updated": "2022-12-18T14:15:05.6686339+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "quicklook",
+      "Version": "3.7.1",
+      "Updated": "2022-06-26T02:54:12.4982044+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "rufus",
+      "Version": "3.20",
+      "Updated": "2022-08-28T19:30:29.2459329+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "snipaste",
+      "Version": "1.16.2",
+      "Updated": "2022-06-26T02:53:10.6145388+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "sudo",
+      "Version": "0.2020.01.26",
+      "Updated": "2022-06-26T02:48:29.1956596+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "sumatrapdf",
+      "Version": "3.4.6",
+      "Updated": "2022-06-26T02:53:33.3413575+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "vscode",
+      "Version": "1.74.1",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "openark",
+      "Version": "1.2.2",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "eudic",
+      "Version": "2022-11-10",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "wechat",
+      "Version": "3.8.0.41",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "tencentmeeting",
+      "Version": "3.13.5.459",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "telegram",
+      "Version": "4.4.1",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "goland",
+      "Version": "2022.3-223.7571.176",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "fiddler",
+      "Version": "5.0.20211.51073",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "wireshark",
+      "Version": "4.0.2",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "huorong-popblock",
+      "Version": "5.0.72.1",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "baidudisk",
+      "Version": "7.23.0.10",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "docker",
+      "Version": "20.10.22",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "cloudmusic",
+      "Version": "2.9.8.199759",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "potplayer",
+      "Version": "221215",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "postman",
+      "Version": "10.6.0",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "neatreader",
+      "Version": "9.0.8",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "steam",
+      "Version": "nightly",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "main",
+      "Name": "chromedriver",
+      "Version": "nightly",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "firefox",
+      "Version": "108.0.1",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "neteaseuu",
+      "Version": "4.42.1.4069",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "TranslucentTB",
+      "Version": "2022.1",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "wox",
+      "Version": "1.3.524",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
+    }
+  ],
+  "buckets": [
+    {
+      "Name": "main",
+      "Source": "https://github.com/ScoopInstaller/Main",
+      "Updated": "2022-12-18T12:27:54+08:00",
+      "Manifests": 1127
+    },
+    {
+      "Name": "apps",
+      "Source": "https://github.com/kkzzhizhou/scoop-apps",
+      "Updated": "2022-02-10T06:56:24.6400795+08:00"
+    }
+  ]
+}
