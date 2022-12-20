@@ -1,23 +1,9 @@
 {
   "apps": [
     {
-      "Source": "apps",
-      "Name": "7zip",
-      "Version": "22.00",
-      "Updated": "2022-06-26T02:46:03.6703957+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
+      "Source": "main",
       "Name": "btop",
       "Version": "1.0.4",
-      "Updated": "2022-12-05T23:50:15.6699326+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "clash-win",
-      "Version": "0.20.11",
       "Updated": "2022-12-05T23:50:15.6699326+08:00",
       "Info": ""
     },
@@ -26,13 +12,6 @@
       "Name": "copyq",
       "Version": "6.1.0",
       "Updated": "2022-06-27T02:34:31.7069709+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "dark",
-      "Version": "3.11.2",
-      "Updated": "2022-06-26T02:46:56.2060751+08:00",
       "Info": ""
     },
     {
@@ -65,20 +44,6 @@
     },
     {
       "Source": "apps",
-      "Name": "git",
-      "Version": "2.36.1.windows.1",
-      "Updated": "2022-06-26T02:46:20.0300162+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "innounp",
-      "Version": "0.50",
-      "Updated": "2022-06-26T02:49:20.3066458+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
       "Name": "irfanview",
       "Version": "4.62",
       "Updated": "2022-09-08T22:49:29.6439712+08:00",
@@ -86,23 +51,23 @@
     },
     {
       "Source": "apps",
-      "Name": "jetbrains-mono",
+      "Name": "thunderbird",
       "Version": "2.242",
       "Updated": "2022-02-10T06:56:24.6400795+08:00",
       "Info": ""
     },
     {
       "Source": "apps",
-      "Name": "JetBrainsMono-NF",
-      "Version": "2.1.0",
+      "Name": "obsidian",
+      "Version": "1.0.3",
       "Updated": "2022-06-26T02:44:44.3284967+08:00",
       "Info": ""
     },
     {
       "Source": "apps",
-      "Name": "kdeconnect",
-      "Version": "22.08.0",
-      "Updated": "2022-11-07T23:16:08.7859447+08:00",
+      "Name": "marktext",
+      "Version": "1.0.3",
+      "Updated": "2022-06-26T02:44:44.3284967+08:00",
       "Info": ""
     },
     {
@@ -142,23 +107,9 @@
     },
     {
       "Source": "apps",
-      "Name": "sudo",
-      "Version": "0.2020.01.26",
-      "Updated": "2022-06-26T02:48:29.1956596+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
       "Name": "sumatrapdf",
       "Version": "3.4.6",
       "Updated": "2022-06-26T02:53:33.3413575+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "vscode",
-      "Version": "1.74.1",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
       "Info": ""
     },
     {
@@ -233,20 +184,6 @@
     },
     {
       "Source": "apps",
-      "Name": "docker",
-      "Version": "20.10.22",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "cloudmusic",
-      "Version": "2.9.8.199759",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
       "Name": "potplayer",
       "Version": "221215",
       "Updated": "2022-12-18T15:26:52.6548233+08:00",
@@ -270,20 +207,6 @@
       "Source": "apps",
       "Name": "steam",
       "Version": "nightly",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "main",
-      "Name": "chromedriver",
-      "Version": "nightly",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "firefox",
-      "Version": "108.0.1",
       "Updated": "2022-12-18T15:26:52.6548233+08:00",
       "Info": ""
     },
