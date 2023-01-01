@@ -170,13 +170,6 @@
     },
     {
       "Source": "apps",
-      "Name": "huorong-popblock",
-      "Version": "5.0.72.1",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
       "Name": "baidudisk",
       "Version": "7.23.0.10",
       "Updated": "2022-12-18T15:26:52.6548233+08:00",
@@ -212,22 +205,15 @@
     },
     {
       "Source": "apps",
-      "Name": "neteaseuu",
-      "Version": "4.42.1.4069",
+      "Name": "lx-music",
+      "Version": "1.22.3",
       "Updated": "2022-12-18T15:26:52.6548233+08:00",
       "Info": ""
     },
     {
       "Source": "apps",
-      "Name": "TranslucentTB",
-      "Version": "2022.1",
-      "Updated": "2022-12-18T15:26:52.6548233+08:00",
-      "Info": ""
-    },
-    {
-      "Source": "apps",
-      "Name": "wox",
-      "Version": "1.3.524",
+      "Name": "utools",
+      "Version": "3.3.0",
       "Updated": "2022-12-18T15:26:52.6548233+08:00",
       "Info": ""
     }
