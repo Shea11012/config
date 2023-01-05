@@ -216,6 +216,13 @@
       "Version": "3.3.0",
       "Updated": "2022-12-18T15:26:52.6548233+08:00",
       "Info": ""
+    },
+    {
+      "Source": "apps",
+      "Name": "trafficmonitor",
+      "Version": "1.84.1",
+      "Updated": "2022-12-18T15:26:52.6548233+08:00",
+      "Info": ""
     }
   ],
   "buckets": [
