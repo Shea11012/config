@@ -22,6 +22,14 @@
         {
             "command": "tabSearch",
             "keys": "ctrl+tab"
+        },
+        {
+            "command": "nextTab",
+            "keys": "alt+right"
+        },
+        {
+            "command": "prevTab",
+            "keys": "alt+left"
         }
     ],
     "copyFormatting": "none",
