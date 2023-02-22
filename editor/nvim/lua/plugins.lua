@@ -35,6 +35,12 @@ return require('packer').startup(function(use)
   use "b0o/schemastore.nvim"
 
   use "windwp/nvim-autopairs"
+  use {
+    "numToStr/Comment.nvim",
+    config = function()
+        require('Comment').setup()
+    end
+}
 
   -- telescope
 --  use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}

@@ -9,7 +9,6 @@ payload:
     - DOMAIN,cdn-ali.content.steamchina.com
     - DOMAIN,xz.pphimalayanrt.com
     - DOMAIN,cdn-qc.content.steamchina.com
-    - 
     - DOMAIN,steam-chat.com
     - DOMAIN,store.st.dl.pinyuncloud.com
     - DOMAIN,media.st.dl.eccdnx.com
