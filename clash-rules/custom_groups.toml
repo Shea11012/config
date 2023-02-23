@@ -1,0 +1,67 @@
+[[custom_groups]]
+name = "可莉V2"
+type = "select"
+rule = ["V2.*"]
+
+[[custom_groups]]
+name = "可莉"
+type = "select"
+rule = ['V\d.*']
+
+[[custom_groups]]
+name = "白月光"
+type = "select"
+rule = ['^(?!V\d).*']
+
+[[custom_groups]]
+name = "🔰 节点选择"
+type = "select"
+rule = ["[]♻ 自动选择", "[]可莉V2","[]可莉","[]白月光","[]🎯 全球直连", ".*"]
+
+[[custom_groups]]
+name = "♻ 自动选择"
+type = "url-test"
+rule = [".*"]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "Ⓜ 微软服务"
+type = "select"
+rule = ["[]🎯 全球直连",
+"[]🔰 节点选择",
+".*"]
+
+[[custom_groups]]
+name = "📲 电报信息"
+type = "select"
+rule = ["[]🔰 节点选择",
+"[]🎯 全球直连",
+".*"]
+
+[[custom_groups]]
+name = "🍎 苹果服务"
+type = "select"
+rule = ["[]🔰 节点选择",
+"[]🎯 全球直连",
+"[]♻ 自动选择",
+".*"]
+
+[[custom_groups]]
+name = "🎯 全球直连"
+type = "select"
+rule = ["[]DIRECT"]
+
+[[custom_groups]]
+name = "🛑 全球拦截"
+type = "select"
+rule = ["[]REJECT", "[]DIRECT"]
+
+[[custom_groups]]
+name = "🐟 漏网之鱼"
+type = "select"
+rule = ["[]🔰 节点选择",
+"可莉V2",
+"[]🎯 全球直连",
+"[]♻ 自动选择",
+".*"]
