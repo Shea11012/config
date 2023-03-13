@@ -78,7 +78,7 @@ map("t", "<Esc>", "<C-\\><C-n>", opt)
 local pluginKeys = {}
 
 -- nvim-tree
-map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
+map("n", "<C-t>", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
 -- 左右tab切换

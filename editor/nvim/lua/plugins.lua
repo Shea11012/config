@@ -35,17 +35,24 @@ return require('packer').startup(function(use)
   use "b0o/schemastore.nvim"
 
   use "windwp/nvim-autopairs"
+ 
+  -- comment
   use {
-    "numToStr/Comment.nvim",
-    config = function()
-        require('Comment').setup()
-    end
-}
+        "numToStr/Comment.nvim",
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
+  -- markdown
   use ({
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
     })
+
+ -- fzf.vim
+  use "junegunn/fzf.vim"
+
 
   -- telescope
 --  use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
