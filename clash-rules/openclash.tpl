@@ -130,7 +130,6 @@ dns:
 {% if local.clash.new_field_name == "true" %}
 proxies: ~
 proxy-groups: ~
-rules: ~
 {% else %}
 Proxy: ~
 Proxy Group: ~
@@ -180,6 +179,18 @@ tun:
 profile:
   store-selected: true
   store-fake-ip: true
+rules:
+- RULE-SET,steam-direct,DIRECT
+- RULE-SET,private-direct,DIRECT
+- RULE-SET,reject,REJECT
+- RULE-SET,direct,DIRECT
+- RULE-SET,iCloud,DIRECT
+- RULE-SET,apple,DIRECT
+- RULE-SET,cncidr,DIRECT
+- "RULE-SET,telegramcidr,\U0001F530 节点选择"
+- "DOMAIN-SUFFIX,openai.com,\U0001F4ACchatgpt"
+- "RULE-SET,proxy,\U0001F530 节点选择"
+- "MATCH,\U0001F530 节点选择"
 rule-providers:
   steam-direct:
     type: http

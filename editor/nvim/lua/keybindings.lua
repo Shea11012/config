@@ -87,4 +87,7 @@ map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- 关闭当前tab
 map("n", "<C-w>", ":bd<CR>", opt)
 
+--markdownpreview
+map("n", "<C-m>",":MarkdownPreview<CR>",opt)
+
 return pluginKeys
