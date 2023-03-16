@@ -7,6 +7,7 @@ end
 nvim_tree.setup({
     -- 禁止内置netrw
     disable_netrw = true,
+    sync_root_with_cwd = true,
     view = {
         width = 34,
         side = "left",
@@ -14,11 +15,9 @@ nvim_tree.setup({
         number = false,
         relativenumber = false,
         signcolumn = "yes",
-        actions = {
-            open_file = {
-                resize_window = true,
-                quit_on_open = false,
-            },
-        },
     },
+    update_focused_file = {
+        enable = false,
+        update_root = true,
+    }
 })

@@ -14,6 +14,8 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use "nvim-lua/plenary.nvim"
+
 
   -- nvim-tree
   use {'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons'}
@@ -53,6 +55,8 @@ return require('packer').startup(function(use)
  -- fzf.vim
   use "junegunn/fzf.vim"
 
+-- null-ls.nvim
+  use "jose-elias-alvarez/null-ls.nvim"
 
   -- telescope
 --  use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
