@@ -62,10 +62,6 @@ map("n", "<A-j>", "<C-w>j", opt)
 map("n", "<A-k>", "<C-w>k", opt)
 map("n", "<A-l>", "<C-w>l", opt)
 
--- terminal 相关
-map("n", "st", ":sp | terminal<CR>", opt)
-map("n", "stv", ":vs | terminal<CR>", opt)
-
 -- esc 退回normal模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 

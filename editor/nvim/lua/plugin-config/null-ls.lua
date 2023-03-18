@@ -37,6 +37,7 @@ null_ls.setup({
         null_ls.builtins.formatting.beautysh,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.goimports,
+        null_ls.builtins.formatting.lua_format,
 
         -- code action
         null_ls.builtins.code_actions.shellcheck,
