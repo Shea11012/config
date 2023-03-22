@@ -14,6 +14,7 @@ map("n", "g_", "$", opt)
 
 map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>wq", ":wq<CR>", opt)
+map("n", "<leader>q", ":qa!<cr>", opt)
 
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'",
                {expr = true, silent = true})
