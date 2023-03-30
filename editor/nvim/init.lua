@@ -8,6 +8,8 @@ require("theme")
 
 require('plugin-config')
 
+require('custom')
+
 -- require("plugin-config.bufferline")
 -- require("plugin-config.nvim-tree")
 -- require("plugin-config.lualine")
