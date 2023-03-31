@@ -11,9 +11,9 @@ lsp.preset({
     suggest_lsp_server = false
 })
 
-lsp.ensure_installed({'gopls', 'rust_analyzer', 'tsserver'})
+lsp.ensure_installed({'gopls', 'rust_analyzer', 'tsserver', 'lua_ls'})
 
-lsp.setup_servers({'gopls', 'rust_analyzer', 'tsserver'})
+lsp.setup_servers({'gopls', 'rust_analyzer', 'tsserver', 'lua_ls'})
 
 lsp.nvim_workspace()
 
