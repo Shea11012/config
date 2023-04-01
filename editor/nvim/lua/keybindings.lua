@@ -62,10 +62,15 @@ map("n", "<A-l>", "<C-w>l", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 
 -- plugins --------------------------------------------------------
-local pluginKeys = {}
 
 -- nvim-tree
-map("n", "<C-t>", ":NvimTreeToggle<CR>", opt)
+map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+
+-- toggleterm
+map("n", "<C-\\>", [[:execute v:count "ToggleTerm direction=horizontal"<CR>]],
+    opt)
+map("i", "<C-\\>", "<Esc><Cmd>ToggleTerm direction=horizontal<CR>", opt)
+map("t", "<C-\\>", "<Esc><Cmd>ToggleTerm<CR>", opt)
 
 -- bufferline
 -- 左右tab切换
@@ -75,6 +80,23 @@ map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 map("n", "<C-w>", ":bd<CR>", opt)
 
 -- markdownpreview
-map("n", "<C-m>", ":MarkdownPreview<CR>", opt)
+map("n", "<F12>", ":MarkdownPreviewToggle<CR>", opt)
 
-return pluginKeys
+-- telescope
+-- 正则匹配查找文件
+map("n", "<leader>fw", '', {
+    noremap = true,
+    silent = true,
+    callback = function()
+        require("telescope").extensions.live_grep_args.live_grep_args()
+    end
+})
+
+-- 查找文件
+map("n", "<leader>ff", ":<C-u>Telescope find_files<CR>", opt)
+-- 查找git
+map("n", "<leader>fg", ":<C-u>Telescope git_files<CR>", opt)
+-- 查看打开的buffer
+map("n", "<leader>fb", ":<C-u>Telescope buffers<CR>", opt)
+-- 通过zoxide list 调整当前目录
+map("n", "<leader>fz", ":<C-u>Telescope zoxide list<CR>", opt)

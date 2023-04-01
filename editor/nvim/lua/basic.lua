@@ -63,16 +63,13 @@ vim.o.whichwrap = "<,>,[,]"
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
 
--- 鼠标支持
-vim.o.mouse = "a"
-
 -- 禁止backup、swap文件
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 
 -- smaller update, unit:ms
-vim.o.updatetime = 700
+vim.o.updatetime = 200
 
 -- 等待键盘快捷键连击时间,unit: ms
 -- vim.o.timeoutlen = 500
@@ -102,7 +99,13 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 
 -- 显示不可见字符
-vim.o.list = false
+vim.o.list = true
 -- 不可见字符显示
-vim.o.listchars = "space:·,tab:··"
+vim.o.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
 
+vim.o.grepformat = "%f:%l:%c:%m"
+vim.o.grepprg = "rg --hidden --vimgrep --smart-case --"
+
+vim.o.wildignore =
+    ".git,.hg,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**"
+vim.o.wildignorecase = true

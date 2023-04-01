@@ -1,17 +1,22 @@
 require("basic")
 
-require("plugins")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git", "clone", "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git", "--branch=stable", -- latest stable release
+        lazypath
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
+local plugins = require("plugins")
+require("lazy").setup(plugins)
+
+vim.cmd.colorscheme "catppuccin-macchiato"
 
 require("keybindings")
-
-require("theme")
 
 require('plugin-config')
 
 require('custom')
-
--- require("plugin-config.bufferline")
--- require("plugin-config.nvim-tree")
--- require("plugin-config.lualine")
--- require("plugin-config.nvim-autopairs")
--- require("plugin-config.null-ls")

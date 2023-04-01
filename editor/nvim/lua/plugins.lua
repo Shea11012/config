@@ -1,77 +1,66 @@
--- 自动安装 Packer.nvim
-local fn = vim.fn
-local ensure_packer = function()
-    local install_path = fn.stdpath('data') ..
-                             '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({
-            'git', 'clone', '--depth', '1',
-            'https://github.com/wbthomason/packer.nvim', install_path
-        })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
-end
-
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    use "nvim-lua/plenary.nvim"
+return {
 
     -- nvim-tree
-    use {'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons'}
-
-    -- bufferline
-    use {
+    {
+        'nvim-tree/nvim-tree.lua',
+        lazy = true,
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        cmd = {
+            "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile",
+            "NvimTreeFindFileToggle", "NvimTreeRefresh"
+        }
+    }, -- bufferline
+    {
         "akinsho/bufferline.nvim",
-        tag = "v3.*",
-        requires = 'nvim-tree/nvim-web-devicons'
-    }
-
-    -- lualine
-    use {'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-    use 'arkav/lualine-lsp-progress'
-
-    -- treesitter
-    use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
-
-    -- theme
-    use 'folke/tokyonight.nvim'
-
-    -- JSON
-    use "b0o/schemastore.nvim"
-
-    use "windwp/nvim-autopairs"
-
-    -- comment
-    use {
-        "numToStr/Comment.nvim",
-        config = function() require('Comment').setup() end
-    }
-
+        lazy = true,
+        event = {"BufReadPost", "BufAdd", "BufNewFile"},
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    }, -- lualine
+    {
+        'nvim-lualine/lualine.nvim',
+        lazy = true,
+        event = {"BufReadPost", "BufAdd", "BufNewFile"},
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    }, 'arkav/lualine-lsp-progress', -- treesitter
+    {
+        'nvim-treesitter/nvim-treesitter',
+        lazy = true,
+        build = function()
+            if #vim.api.nvim_list_uis() ~= 0 then
+                vim.api.nvim_command("TSUpdate")
+            end
+        end,
+        event = {"CursorHold", "CursorHoldI"},
+        dependencies = {
+            {"nvim-treesitter/nvim-treesitter-textobjects"},
+            {"mrjones2014/nvim-ts-rainbow"},
+            {"JoosepAlviste/nvim-ts-context-commentstring"},
+            {"mfussenegger/nvim-treehopper"}, {"andymass/vim-matchup"},
+            {"windwp/nvim-ts-autotag"}, {"NvChad/nvim-colorizer.lua"},
+            {"abecodes/tabout.nvim"}
+        }
+    }, -- theme
+    {'catppuccin/nvim', name = "catppuccin"},
+    {"windwp/nvim-autopairs", lazy = true}, -- comment
+    {"numToStr/Comment.nvim", init = function() require("Comment").setup() end},
     -- markdown
-    use({
+    {
         "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end
-    })
-
-    -- fzf.vim
-    use "junegunn/fzf.vim"
-
-    -- null-ls.nvim
-    use "jose-elias-alvarez/null-ls.nvim"
-
-    use {
+        ft = "markdown",
+        lazy = true,
+        build = function() vim.fn["mkdp#util#install"]() end
+    }, -- fzf.vim
+    {"junegunn/fzf.vim"}, -- null-ls.nvim
+    {"jose-elias-alvarez/null-ls.nvim"}, -- lsp-zero
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = {
-            -- LSP Support
+        dependencies = {
+            {"nvim-lua/plenary.nvim"}, -- LSP Support
             {'neovim/nvim-lspconfig'}, -- Required
             {
                 'williamboman/mason.nvim',
-                run = function() pcall(vim.cmd, 'MasonUpdate') end
+                build = function() pcall(vim.cmd, 'MasonUpdate') end
             }, -- Optional
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
             -- Autocompletion
@@ -84,16 +73,24 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'}, -- Required
             {'rafamadriz/friendly-snippets'} -- Optional
         }
-    }
+    }, -- toggleterm
+    {
+        "akinsho/toggleterm.nvim",
+        cmd = {
+            "ToggleTerm", "ToggleTermSetName", "ToggleTermToggleAll",
+            "ToggleTermSendVisualLines", "ToggleTermSendCurrentLine",
+            "ToggleTermSendVisualSelection"
+        }
+    }, -- vim-go
+    {"fatih/vim-go", lazy = true}, -- telescope
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = {
+            {'nvim-lua/plenary.nvim'}, {"nvim-tree/nvim-web-devicons"},
+            {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
+            {"jvgrootveld/telescope-zoxide"},
+            {"nvim-telescope/telescope-live-grep-args.nvim"}
+        }
+    }, {"ibhagwan/smartyank.nvim", lazy = true, event = "BufReadPost"}
 
-    use {"akinsho/toggleterm.nvim", tag = '*'}
-
-    use "fatih/vim-go"
-
-    -- telescope
-    --  use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then require('packer').sync() end
-end)
+}
