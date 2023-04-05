@@ -82,7 +82,7 @@ return {
             "ToggleTermSendVisualSelection"
         }
     }, -- vim-go
-    {"fatih/vim-go", lazy = true}, -- telescope
+    {"fatih/vim-go", lazy = true, ft = "go"}, -- telescope
     {
         'nvim-telescope/telescope.nvim',
         dependencies = {
