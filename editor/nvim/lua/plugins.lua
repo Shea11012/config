@@ -42,8 +42,10 @@ return {
     }, -- theme
     {'catppuccin/nvim', name = "catppuccin"},
     {"windwp/nvim-autopairs", lazy = true}, -- comment
-    {"numToStr/Comment.nvim", init = function() require("Comment").setup() end},
-    -- markdown
+    {
+        "numToStr/Comment.nvim",
+        config = function() require("Comment").setup() end
+    }, -- markdown
     {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
@@ -91,6 +93,13 @@ return {
             {"jvgrootveld/telescope-zoxide"},
             {"nvim-telescope/telescope-live-grep-args.nvim"}
         }
-    }, {"ibhagwan/smartyank.nvim", lazy = true, event = "BufReadPost"}
+    }, -- smartyank
+    {"ibhagwan/smartyank.nvim", lazy = true, event = "BufReadPost"},
+    -- nvim-surround
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        config = function() require("nvim-surround").setup() end
+    }
 
 }

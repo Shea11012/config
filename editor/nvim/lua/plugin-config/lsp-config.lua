@@ -11,7 +11,13 @@ lsp.preset({
     suggest_lsp_server = false
 })
 
-lsp.setup_servers({'gopls', 'rust_analyzer', 'tsserver', 'lua_ls', 'rls'})
+local language = {
+    'gopls', 'rust_analyzer', 'tsserver', 'lua_ls', 'rls', 'jsonls', "yamlls"
+}
+
+lsp.ensure_installed(language)
+
+lsp.setup_servers(language)
 
 lsp.nvim_workspace()
 
