@@ -10,10 +10,13 @@ dns:
   listen: 0.0.0.0:7874
   enhanced-mode: fake-ip
   default-nameserver:
+  - 208.67.222.222
+  - 208.67.220.220
+  - 8.8.8.8
+  - 8.8.4.4
   - 119.29.29.29
   - 119.28.28.28
   - 1.0.0.1
-  - 208.67.222.222
   - 1.2.4.8
   nameserver:
   - 114.114.114.114
@@ -169,34 +172,72 @@ sniffer:
       override-destination: true
 tun:
   enable: true
-  stack: system
+  stack: gvisor
   device: utun
   mtu: 65535
-  auto-route: false
-  auto-detect-interface: false
+  auto-route: true
+  auto-detect-interface: true
   dns-hijack:
   - tcp://any:53
 profile:
   store-selected: true
   store-fake-ip: true
 rules:
-- RULE-SET,steam-direct,DIRECT
+# 过滤广告
+- RULE-SET,adLite,REJECT
+- RULE-SET,adLite-domain,REJECT
+
+# DIRECT
+- RULE-SET,lancidr,DIRECT
+- RULE-SET,steam-cn,DIRECT
+- RULE-SET,steam,DIRECT
 - RULE-SET,private-direct,DIRECT
-- RULE-SET,reject,REJECT
 - RULE-SET,direct,DIRECT
 - RULE-SET,iCloud,DIRECT
 - RULE-SET,apple,DIRECT
 - RULE-SET,cncidr,DIRECT
+
+# PROXY
+- "RULE-SET,google,谷歌服务"
 - "RULE-SET,telegramcidr,\U0001F530 节点选择"
-- "DOMAIN-SUFFIX,openai.com,\U0001F4ACchatgpt"
-- "RULE-SET,proxy,\U0001F530 节点选择"
+- "RULE-SET,openai,\U0001F4ACchatgpt"
+
+# REJECT
+- RULE-SET,reject,REJECT
+
+# FINAL
 - "MATCH,\U0001F530 节点选择"
+
 rule-providers:
-  steam-direct:
+  adLite:
+    type: http
+    behavior: classical
+    path: "./rule_provider/adLite.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml"
+    interval: 86400
+  adLite-domain:
+    type: http
+    behavior: domain
+    path: "./rule_provider/adLite-domain.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
+    interval: 86400
+  steam-cn:
+    type: http
+    behavior: classical
+    path: "./rule_provider/steam-cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml"
+    interval: 86400
+  steam:
     type: http
     behavior: classical
     path: "./rule_provider/steam.yaml"
-    url: "https://raw.githubusercontent.com/Shea11012/config/main/clash-rules/steam.txt"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml"
+    interval: 86400
+  openai:
+    type: http
+    behavior: classical
+    path: "./rule_provider/openai.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
     interval: 86400
   private-direct:
     type: http
@@ -229,11 +270,11 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
     interval: 86400
   lancidr:
-    type: http
-    behavior: ipcidr
-    path: "./rule_provider/lancidr.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-    interval: 86400
+      type: http
+      behavior: ipcidr
+      path: "./rule_provider/lancidr.yaml"
+      url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+      interval: 86400
   cncidr:
     type: http
     behavior: ipcidr
@@ -251,4 +292,10 @@ rule-providers:
     behavior: domain
     path: "./rule_provider/proxy.yaml"
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+    interval: 86400
+  google:
+    type: http
+    behavior: classical
+    path: "./rule_provider/google.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
     interval: 86400

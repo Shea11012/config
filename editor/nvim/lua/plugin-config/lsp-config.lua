@@ -11,9 +11,7 @@ lsp.preset({
     suggest_lsp_server = false
 })
 
-local language = {
-    'gopls', 'rust_analyzer', 'tsserver', 'lua_ls', 'jsonls', "yamlls"
-}
+local language = {'gopls', 'rust_analyzer', 'tsserver', 'lua_ls'}
 
 lsp.ensure_installed(language)
 
