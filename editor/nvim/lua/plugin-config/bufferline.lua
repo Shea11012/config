@@ -8,7 +8,7 @@ bufferline.setup({
     options = {
         number = nil,
         modified_icon = "✥",
-        buffer_close_icon = "",
+        buffer_close_icon = "⨯",
         left_trunc_marker = "",
         right_trunc_marker = "",
         max_name_length = 14,
