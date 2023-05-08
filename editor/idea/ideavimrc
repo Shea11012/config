@@ -1,0 +1,29 @@
+let mapleader="<space>"
+
+""" Plugins --------------------------
+""" https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" 修改包裹符号 https://github.com/tpope/vim-surround/blob/master/doc/surround.txt
+set surround
+
+""" Common Settings -------------------
+set encoding="utf-8"
+set showmode
+set incsearch
+set number
+set scrolloff=5
+set relativenumber
+set listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
+set messages
+
+map gd <Action>(GotoDeclaration)
+map gt <Action>(GotoTypeDeclaration)
+map gi <Action>(GotoImplementation)
+map gs <Action>(GotoSuperMethod)
+map [d <Action>(Forward)
+map ]d <Action>(Back)
+
+
