@@ -18,5 +18,6 @@ nvim_tree.setup({
     actions = {
         use_system_clipboard = true,
         change_dir = {enable = true, global = false}
-    }
+    },
+    git = {ignore = false}
 })

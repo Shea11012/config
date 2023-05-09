@@ -1,0 +1,2 @@
+www.douyu.com##.layout-Cover-item:has(.DyListCover-wrap:matches-attr(href="/52876|88660|9996|762484|9999|73965/")):remove()
+www.douyu.com##.layout-Customization:remove()

@@ -65,6 +65,7 @@ map("t", "<Esc>", "<C-\\><C-n>", opt)
 
 -- nvim-tree
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>tr", ":NvimTreeRefresh<CR>", opt)
 
 -- toggleterm
 map("n", "<C-\\>", [[:execute v:count "ToggleTerm direction=horizontal"<CR>]],
