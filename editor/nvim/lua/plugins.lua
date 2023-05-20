@@ -75,6 +75,14 @@ return {
             {'L3MON4D3/LuaSnip'}, -- Required
             {'rafamadriz/friendly-snippets'} -- Optional
         }
+    }, {
+        "olexsmir/gopher.nvim",
+        ft = "go",
+        config = function(_, opts)
+            require("gopher").setup(opts)
+            require("core.utils").load_mappings("gopher")
+        end,
+        build = function() vim.cmd [[silent! GoInstallDeps]] end
     }, -- toggleterm
     {
         "akinsho/toggleterm.nvim",
@@ -83,8 +91,7 @@ return {
             "ToggleTermSendVisualLines", "ToggleTermSendCurrentLine",
             "ToggleTermSendVisualSelection"
         }
-    }, -- vim-go
-    {"fatih/vim-go", lazy = true, ft = "go"}, -- telescope
+    }, -- telescope
     {
         'nvim-telescope/telescope.nvim',
         dependencies = {
