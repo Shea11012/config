@@ -19,7 +19,7 @@ url = "http://www.gstatic.com/generate_204"
 [[custom_groups]]
 name = "💬chatgpt"
 type = "select"
-rule = ['V[1-2]((台湾)|(新加坡)).*']
+rule = ['V[1-2](台湾).*','[]白月光']
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]

@@ -188,6 +188,7 @@ rules:
 - RULE-SET,adLite-domain,REJECT
 
 # DIRECT
+- RULE-SET,wechat,DIRECT
 - RULE-SET,lancidr,DIRECT
 - RULE-SET,steam-cn,DIRECT
 - RULE-SET,steam,DIRECT
@@ -298,4 +299,10 @@ rule-providers:
     behavior: classical
     path: "./rule_provider/google.yaml"
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+    interval: 86400
+  wechat:
+    type: http
+    behavior: classical
+    path: "./rule_provider/wechat.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/WeChat/WeChat.yaml"
     interval: 86400
