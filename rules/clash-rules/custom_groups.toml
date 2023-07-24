@@ -1,13 +1,7 @@
 [[custom_groups]]
-name = "可莉V2"
+name = "三月七"
 type = "select"
-rule = ['V2.*']
-url = "http://www.gstatic.com/generate_204"
-
-[[custom_groups]]
-name = "可莉"
-type = "select"
-rule = ['V\d.*']
+rule = ['.*家宽.*|.*IDC.*']
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]
@@ -19,13 +13,13 @@ url = "http://www.gstatic.com/generate_204"
 [[custom_groups]]
 name = "💬chatgpt"
 type = "select"
-rule = ['V[1-2](台湾).*','[]白月光']
+rule = ['.*ChatGPT','[]白月光']
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]
 name = "🔰 节点选择"
 type = "select"
-rule = ["[]♻️ 自动选择", "[]可莉V2","[]可莉","[]白月光","[]🎯 全球直连", ".*"]
+rule = ["[]♻️ 自动选择", "[]三月七","[]白月光","[]🎯 全球直连", ".*"]
 
 [[custom_groups]]
 name = "♻️ 自动选择"
@@ -37,7 +31,7 @@ interval = 300
 [[custom_groups]]
 name = "谷歌服务"
 type = "select"
-rule = ["[]可莉V2","[]可莉","[]白月光","[]REJECT","[]DIRECT"]
+rule = ["[]三月七","[]白月光","[]REJECT","[]DIRECT"]
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]

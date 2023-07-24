@@ -191,7 +191,6 @@ rules:
 - RULE-SET,wechat,DIRECT
 - RULE-SET,lancidr,DIRECT
 - RULE-SET,steam-cn,DIRECT
-- RULE-SET,steam,DIRECT
 - RULE-SET,private-direct,DIRECT
 - RULE-SET,direct,DIRECT
 - RULE-SET,iCloud,DIRECT
@@ -199,6 +198,7 @@ rules:
 - RULE-SET,cncidr,DIRECT
 
 # PROXY
+- "RULE-SET,steam,\U0001F530 节点选择"
 - "RULE-SET,google,谷歌服务"
 - "RULE-SET,telegramcidr,\U0001F530 节点选择"
 - "RULE-SET,openai,\U0001F4ACchatgpt"
