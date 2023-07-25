@@ -104,6 +104,5 @@ return {
         "kylechui/nvim-surround",
         event = "VeryLazy",
         config = function() require("nvim-surround").setup() end
-    }
-
+    }, {'simrat39/rust-tools.nvim', ft = "rs"}
 }
