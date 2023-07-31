@@ -1,32 +1,26 @@
 [[custom_groups]]
-name = "三月七"
-type = "select"
-rule = ['.*家宽.*|.*IDC.*']
-url = "http://www.gstatic.com/generate_204"
-
-[[custom_groups]]
 name = "白月光"
 type = "select"
-rule = ['^(?!V\d).*']
+# 这里是根据订阅链接的顺序选择的，0表示订阅链接在第一个，获取第一个订阅链接的所有节点，将节点放在该分组下
+rule = ["!!GROUPID=0"]
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]
-name = "💬chatgpt"
+name = "三月七"
+type = "select"
+rule = ["!!GROUPID=1"]
+url = "http://www.gstatic.com/generate_204"
+
+[[custom_groups]]
+name = "chatgpt"
 type = "select"
 rule = ['.*ChatGPT','[]白月光']
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]
-name = "🔰 节点选择"
+name = "节点选择"
 type = "select"
-rule = ["[]♻️ 自动选择", "[]三月七","[]白月光","[]🎯 全球直连", ".*"]
-
-[[custom_groups]]
-name = "♻️ 自动选择"
-type = "url-test"
-rule = [".*"]
-url = "http://www.gstatic.com/generate_204"
-interval = 300
+rule = ["[]自动选择", "[]三月七","[]白月光", ".*"]
 
 [[custom_groups]]
 name = "谷歌服务"
@@ -35,41 +29,6 @@ rule = ["[]三月七","[]白月光","[]REJECT","[]DIRECT"]
 url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]
-name = "Ⓜ️ 微软服务"
-type = "select"
-rule = ["[]🎯 全球直连",
-"[]🔰 节点选择",
-".*"]
-
-[[custom_groups]]
-name = "📲 电报信息"
-type = "select"
-rule = ["[]🔰 节点选择",
-"[]🎯 全球直连",
-".*"]
-
-[[custom_groups]]
-name = "🍎 苹果服务"
-type = "select"
-rule = ["[]🔰 节点选择",
-"[]🎯 全球直连",
-"[]♻️ 自动选择",
-".*"]
-
-[[custom_groups]]
-name = "🎯 全球直连"
-type = "select"
-rule = ["[]DIRECT"]
-
-[[custom_groups]]
-name = "🛑 全球拦截"
-type = "select"
-rule = ["[]REJECT", "[]DIRECT"]
-
-[[custom_groups]]
 name = "🐟 漏网之鱼"
 type = "select"
-rule = ["[]🔰 节点选择",
-"[]🎯 全球直连",
-"[]♻️ 自动选择",
-".*"]
+rule = ["[]节点选择",".*"]

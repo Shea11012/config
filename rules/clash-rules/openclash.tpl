@@ -198,16 +198,16 @@ rules:
 - RULE-SET,cncidr,DIRECT
 
 # PROXY
-- "RULE-SET,steam,\U0001F530 节点选择"
+- "RULE-SET,steam,节点选择"
 - "RULE-SET,google,谷歌服务"
-- "RULE-SET,telegramcidr,\U0001F530 节点选择"
-- "RULE-SET,openai,\U0001F4ACchatgpt"
+- "RULE-SET,telegramcidr,节点选择"
+- "RULE-SET,openai,chatgpt"
 
 # REJECT
 - RULE-SET,reject,REJECT
 
 # FINAL
-- "MATCH,\U0001F530 节点选择"
+- "MATCH,节点选择"
 
 rule-providers:
   adLite:
