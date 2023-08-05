@@ -9,18 +9,24 @@ dns:
   ipv6: false
   listen: 0.0.0.0:7874
   enhanced-mode: fake-ip
-  default-nameserver:
-  - 208.67.222.222
-  - 208.67.220.220
-  - 8.8.8.8
-  - 8.8.4.4
-  - 119.29.29.29
-  - 119.28.28.28
-  - 1.0.0.1
-  - 1.2.4.8
+# 默认的dns查询服务器
   nameserver:
+  - https://dns.alidns.com
+  - https://doh.pub/dns-query
+# 用作解析域名dns服务器
+  default-nameserver:
   - 114.114.114.114
-  - 119.29.29.29
+  - 223.5.5.5
+# dns查询失败后的fallback，确保dns正确
+  fallback:
+  - https://8.8.8.8/dns-query
+  - https://1.0.0.1/dns-query
+  proxy-server-nameserver:
+  - https://1.12.12.12/dns-query
+  - https://dns.alidns.com
+  nameserver-policy:
+    'geosite:cn': [https://doh.pub/dns-query,https://dns.alidns.com]
+    'rules-set:proxy,proxy_domain': [https://8.8.8.8/dns-query,https://1.0.0.1/dns-query]
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - "*.lan"
@@ -150,29 +156,9 @@ geodata-mode: true
 geodata-loader: memconservative
 tcp-concurrent: true
 find-process-mode: 'off'
-sniffer:
-  enable: true
-  ForceDnsMapping: false
-  ParsePureIp: true
-  force-domain:
-  - "+.netflix.com"
-  - "+.nflxvideo.net"
-  - "+.amazonaws.com"
-  - "+.media.dssott.com"
-  skip-domain:
-  - "+.apple.com"
-  - Mijia Cloud
-  - "+.jd.com"
-  sniff:
-    TLS:
-    HTTP:
-      ports:
-      - 80
-      - 8080-8880
-      override-destination: true
 tun:
   enable: true
-  stack: gvisor
+  stack: system
   device: utun
   mtu: 65535
   auto-route: true
@@ -187,27 +173,23 @@ rules:
 - RULE-SET,adLite,REJECT
 - RULE-SET,adLite-domain,REJECT
 
-# DIRECT
-- RULE-SET,wechat,DIRECT
-- RULE-SET,lancidr,DIRECT
-- RULE-SET,steam-cn,DIRECT
-- RULE-SET,private-direct,DIRECT
-- RULE-SET,direct,DIRECT
-- RULE-SET,iCloud,DIRECT
-- RULE-SET,apple,DIRECT
-- RULE-SET,cncidr,DIRECT
-
 # PROXY
-- "RULE-SET,steam,节点选择"
-- "RULE-SET,google,谷歌服务"
-- "RULE-SET,telegramcidr,节点选择"
-- "RULE-SET,openai,chatgpt"
+- RULE-SET,openai,chatgpt
+- RULE-SET,steam,节点选择
+- RULE-SET,proxy,节点选择
+- RULE-SET,proxy_domain,节点选择
+- RULE-SET,apple_proxy,节点选择
 
-# REJECT
-- RULE-SET,reject,REJECT
+# DIRECT
+- RULE-SET,steam-cn,DIRECT
+- RULE-SET,china_max,DIRECT
+- RULE-SET,china_domain,DIRECT
+- RULE-SET,china_ip,DIRECT,no-resolve
+- RULE-SET,apple,DIRECT
+- RULE-SET,lan,DIRECT
 
 # FINAL
-- "MATCH,节点选择"
+- MATCH,节点选择
 
 rule-providers:
   adLite:
@@ -240,69 +222,51 @@ rule-providers:
     path: "./rule_provider/openai.yaml"
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
     interval: 86400
-  private-direct:
-    type: http
-    behavior: domain
-    path: "./rule_provider/private-direct.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-    interval: 86400
-  reject:
-    type: http
-    behavior: domain
-    path: "./rule_provider/reject.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-    interval: 86400
-  direct:
-    type: http
-    behavior: domain
-    path: "./rule_provider/direct.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
-    interval: 86400
-  iCloud:
-    type: http
-    behavior: domain
-    path: "./rule_provider/iCloud.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
-    interval: 86400
   apple:
     type: http
-    behavior: domain
+    behavior: classical
     path: "./rule_provider/apple.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml"
     interval: 86400
-  lancidr:
-      type: http
-      behavior: ipcidr
-      path: "./rule_provider/lancidr.yaml"
-      url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-      interval: 86400
-  cncidr:
+  apple_proxy:
+    type: http
+    behavior: classical
+    path: "./rule_provider/apple_proxy.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.yaml"
+    interval: 86400
+  china_max:
+    type: http
+    behavior: classical
+    path: "./rule_provider/china_max.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax.yaml"
+    interval: 86400
+  china_domain:
+    type: http
+    behavior: domain
+    path: "./rule_provider/china_domain.txt"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain.txt"
+    interval: 86400
+  china_ip:
     type: http
     behavior: ipcidr
-    path: "./rule_provider/cncidr.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
-    interval: 86400
-  telegramcidr:
-    type: http
-    behavior: ipcidr
-    path: "./rule_provider/telegramcidr.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
+    path: "./rule_provider/china_ip.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_IP_No_IPv6.yaml"
     interval: 86400
   proxy:
     type: http
-    behavior: domain
+    behavior: classical
     path: "./rule_provider/proxy.yaml"
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy.yaml"
     interval: 86400
-  google:
+  proxy_domain:
+    type: http
+    behavior: domain
+    path: "./rule_provider/proxy_domain.txt"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain.txt"
+    interval: 86400
+  lan:
     type: http
     behavior: classical
-    path: "./rule_provider/google.yaml"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
-    interval: 86400
-  wechat:
-    type: http
-    behavior: classical
-    path: "./rule_provider/wechat.yaml"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/WeChat/WeChat.yaml"
+    path: "./rule_provider/lan.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
     interval: 86400
