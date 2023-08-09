@@ -182,6 +182,7 @@ rules:
 
 # DIRECT
 - RULE-SET,steam-cn,DIRECT
+- RULE-SET,netbease,DIRECT
 - RULE-SET,china_max,DIRECT
 - RULE-SET,china_domain,DIRECT
 - RULE-SET,china_ip,DIRECT,no-resolve
@@ -269,4 +270,10 @@ rule-providers:
     behavior: classical
     path: "./rule_provider/lan.yaml"
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
+    interval: 86400
+  netbease:
+    type: http
+    behavior: classical
+    path: "./rule_provider/netbease.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEase/NetEase.yaml"
     interval: 86400
