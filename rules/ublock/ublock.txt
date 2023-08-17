@@ -1,3 +1,4 @@
-www.douyu.com##.layout-Cover-item:has(.DyListCover-wrap:matches-attr(href="/52876|88660|9996|762484|9999|73965/")):remove()
+!9999:yyf 52876:zsmj 9996:天天 762484:sylar 73965:霸气
+www.douyu.com##.layout-Cover-item:has(.DyListCover-wrap:matches-attr(href="/52876|9996|762484|9999|73965/")):remove()
 www.douyu.com##.layout-Customization:remove()
 www.douyu.com###js-room-activity:remove()
