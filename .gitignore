@@ -1,4 +1,4 @@
 .vscode
-scripts/*.zwc
+shell/zshrc/scripts/*.zwc
 plugin
 lazy-lock.json 
