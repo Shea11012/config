@@ -93,11 +93,13 @@ local config = {
     -- basic
     enable_scroll_bar = true,
     launch_menu = launch_menu,
-    color_scheme = 'One Dark (Gogh)',
+    color_scheme = 'Tokyo Night',
     default_prog = default_prog,
     use_ime = true,
     xim_im_name = xim_im_name,
     ime_preedit_rendering = 'System',
+    audible_bell = 'Disabled',
+    window_close_confirmation = 'NeverPrompt',
 
     -- window
     adjust_window_size_when_changing_font_size = true,
