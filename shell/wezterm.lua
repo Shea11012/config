@@ -97,6 +97,7 @@ local config = {
     default_prog = default_prog,
     use_ime = true,
     xim_im_name = xim_im_name,
+    ime_preedit_rendering = 'System',
 
     -- window
     adjust_window_size_when_changing_font_size = true,
