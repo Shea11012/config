@@ -9,19 +9,22 @@ return {
             "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile",
             "NvimTreeFindFileToggle", "NvimTreeRefresh"
         }
-    }, -- bufferline
+    }, 
+    -- bufferline
     {
         "akinsho/bufferline.nvim",
         lazy = true,
-        event = {"BufReadPost", "BufAdd", "BufNewFile"},
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
         dependencies = 'nvim-tree/nvim-web-devicons'
-    }, -- lualine
+    }, 
+    -- lualine
     {
         'nvim-lualine/lualine.nvim',
         lazy = true,
-        event = {"BufReadPost", "BufAdd", "BufNewFile"},
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
         dependencies = 'nvim-tree/nvim-web-devicons'
-    }, 'arkav/lualine-lsp-progress', -- treesitter
+    }, 'arkav/lualine-lsp-progress', 
+    -- treesitter
     {
         'nvim-treesitter/nvim-treesitter',
         lazy = true,
@@ -30,57 +33,65 @@ return {
                 vim.api.nvim_command("TSUpdate")
             end
         end,
-        event = {"CursorHold", "CursorHoldI"},
+        event = { "CursorHold", "CursorHoldI" },
         dependencies = {
-            {"nvim-treesitter/nvim-treesitter-textobjects"},
-            {"mrjones2014/nvim-ts-rainbow"},
-            {"JoosepAlviste/nvim-ts-context-commentstring"},
-            {"mfussenegger/nvim-treehopper"}, {"andymass/vim-matchup"},
-            {"windwp/nvim-ts-autotag"}, {"NvChad/nvim-colorizer.lua"},
-            {"abecodes/tabout.nvim"}
+            { "nvim-treesitter/nvim-treesitter-textobjects" },
+            { "mrjones2014/nvim-ts-rainbow" },
+            { "JoosepAlviste/nvim-ts-context-commentstring" },
+            { "mfussenegger/nvim-treehopper" }, { "andymass/vim-matchup" },
+            { "windwp/nvim-ts-autotag" }, { "NvChad/nvim-colorizer.lua" },
+            { "abecodes/tabout.nvim" }
         }
-    }, -- theme
-    {'catppuccin/nvim', name = "catppuccin"},
-    {"windwp/nvim-autopairs", lazy = true}, -- comment
+    },
+    -- theme
+    { 'catppuccin/nvim',       name = "catppuccin" },
+    { "windwp/nvim-autopairs", lazy = true }, 
+    -- comment
     {
         "numToStr/Comment.nvim",
         config = function() require("Comment").setup() end
-    }, -- markdown
+    }, 
+    -- markdown
     {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
         lazy = true,
         build = function() vim.fn["mkdp#util#install"]() end
-    }, -- fzf.vim
-    {"junegunn/fzf.vim"}, -- null-ls.nvim
-    {"jose-elias-alvarez/null-ls.nvim"}, -- lsp-zero
+    },
+                                         -- fzf.vim
+    { "junegunn/fzf.vim" },                
+    -- null-ls.nvim
+    { "jose-elias-alvarez/null-ls.nvim" }, 
+    -- lsp-zero
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         dependencies = {
-            {"nvim-lua/plenary.nvim"}, -- LSP Support
-            {'neovim/nvim-lspconfig'}, -- Required
+            { "nvim-lua/plenary.nvim" }, -- LSP Support
+            { 'neovim/nvim-lspconfig' }, -- Required
             {
                 'williamboman/mason.nvim',
                 build = function() pcall(vim.cmd, 'MasonUpdate') end
-            }, -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            },                                       -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'}, -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'hrsh7th/cmp-buffer'}, -- Optional
-            {'hrsh7th/cmp-path'}, -- Optional
-            {'hrsh7th/cmp-nvim-lua'}, -- Optional
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'hrsh7th/cmp-buffer' },                -- Optional
+            { 'hrsh7th/cmp-path' },                  -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },              -- Optional
             -- Snippets
-            {'L3MON4D3/LuaSnip'}, -- Required
-            {'rafamadriz/friendly-snippets'} -- Optional
+            { 'L3MON4D3/LuaSnip' },                  -- Required
+            { 'rafamadriz/friendly-snippets' }       -- Optional
         }
-    }, {
+    },
+    {
         "olexsmir/gopher.nvim",
         ft = "go",
         config = function(_, opts) require("gopher").setup(opts) end,
         build = function() vim.cmd [[silent! GoInstallDeps]] end
-    }, -- toggleterm
+    },
+    -- toggleterm
     {
         "akinsho/toggleterm.nvim",
         cmd = {
@@ -88,21 +99,25 @@ return {
             "ToggleTermSendVisualLines", "ToggleTermSendCurrentLine",
             "ToggleTermSendVisualSelection"
         }
-    }, -- telescope
+    },
+    -- telescope
     {
         'nvim-telescope/telescope.nvim',
         dependencies = {
-            {'nvim-lua/plenary.nvim'}, {"nvim-tree/nvim-web-devicons"},
-            {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
-            {"jvgrootveld/telescope-zoxide"},
-            {"nvim-telescope/telescope-live-grep-args.nvim"}
+            { 'nvim-lua/plenary.nvim' }, 
+            { "nvim-tree/nvim-web-devicons" },
+            { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
+            { "jvgrootveld/telescope-zoxide" },
+            { "nvim-telescope/telescope-live-grep-args.nvim" }
         }
-    }, -- smartyank
-    {"ibhagwan/smartyank.nvim", lazy = true, event = "BufReadPost"},
+    },
+    -- smartyank
+    { "ibhagwan/smartyank.nvim",  lazy = true, event = "BufReadPost" },
     -- nvim-surround
     {
         "kylechui/nvim-surround",
         event = "VeryLazy",
         config = function() require("nvim-surround").setup() end
-    }, {'simrat39/rust-tools.nvim', ft = "rs"}
+    },
+    { 'simrat39/rust-tools.nvim', ft = "rs" }
 }
