@@ -2,7 +2,10 @@
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--inline-info --height 60% --ansi --border"
 # rootless docker daemon
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+version=$(uname -a)
+if [[ $version != *[WwSsLl]* ]]; then
+    export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+fi
 
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
