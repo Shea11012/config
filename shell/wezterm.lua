@@ -7,8 +7,8 @@ local xim_im_name = ''
 
 -- windows
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-    -- default_prog = {'pwsh', '-nol'}
-    default_prog = { 'nu' }
+     default_prog = {'pwsh', '-nol'}
+    --   default_prog = { 'nu' }
     table.insert(launch_menu, { label = 'pwsh', args = { 'pwsh', '-NoLogo' } })
 
     table.insert(launch_menu, {
@@ -54,6 +54,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
 end)
 
 
+local leader = { key = 'b', mods = 'CTRL' }
 local keys = {
     { key = 'c', mods = 'LEADER', action = act { SpawnTab = 'CurrentPaneDomain' } },
     {
@@ -125,7 +126,7 @@ local config = {
     tab_max_width = 25,
 
     -- keys
-    leader = { key = 'b', mods = 'CTRL' },
+    leader = leader,
     disable_default_key_bindings = false,
     use_dead_keys = false,
     keys = keys
