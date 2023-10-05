@@ -12,5 +12,9 @@ eval "$(pyenv init -)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+# rust mirror
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
 # alias
 alias vim="nvim"
