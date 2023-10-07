@@ -11,7 +11,8 @@ dns:
   enhanced-mode: fake-ip
 # 默认的dns查询服务器
   nameserver:
-  - https://dns.alidns.com
+  - 192.168.32.1
+  - https://dns.alidns.com/dns-query
   - https://doh.pub/dns-query
 # 用作解析域名dns服务器
   default-nameserver:
@@ -19,14 +20,11 @@ dns:
   - 223.5.5.5
 # dns查询失败后的fallback，确保dns正确
   fallback:
-  - https://8.8.8.8/dns-query
-  - https://1.0.0.1/dns-query
-  proxy-server-nameserver:
-  - https://1.12.12.12/dns-query
-  - https://dns.alidns.com
+  - https://dns.google/dns-query
+  - https://1.1.1.1/dns-query
   nameserver-policy:
-    'geosite:cn': [https://doh.pub/dns-query,https://dns.alidns.com]
-    'rules-set:proxy,proxy_domain': [https://8.8.8.8/dns-query,https://1.0.0.1/dns-query]
+    'geosite:cn': [192.168.32.1,https://doh.pub/dns-query,https://dns.alidns.com/dns-query]
+    'rules-set:proxy,proxy_domain': [https://8.8.8.8/dns-query,https://1.1.1.1/dns-query]
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - "*.lan"
