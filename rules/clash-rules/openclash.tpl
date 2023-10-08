@@ -9,22 +9,25 @@ dns:
   ipv6: false
   listen: 0.0.0.0:7874
   enhanced-mode: fake-ip
+  use-hosts: true
 # 默认的dns查询服务器
   nameserver:
-  - 192.168.32.1
   - https://dns.alidns.com/dns-query
   - https://doh.pub/dns-query
 # 用作解析域名dns服务器
   default-nameserver:
-  - 114.114.114.114
+  - 119.29.29.29
   - 223.5.5.5
 # dns查询失败后的fallback，确保dns正确
   fallback:
+  - https://doh.dns.sb/dns-query
+  - https://dns.twnic.tw/dns-query
   - https://dns.google/dns-query
-  - https://1.1.1.1/dns-query
-  nameserver-policy:
-    'geosite:cn': [192.168.32.1,https://doh.pub/dns-query,https://dns.alidns.com/dns-query]
-    'rules-set:proxy,proxy_domain': [https://8.8.8.8/dns-query,https://1.1.1.1/dns-query]
+  - https://cloudflare-dns.com/dns-query
+  - tls://8.8.4.4:853
+  fallback-filter:
+    geoip: true
+    ipcidr: [240.0.0.0/4, 0.0.0.0/32]
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - "*.lan"
