@@ -179,6 +179,7 @@ rules:
 - RULE-SET,apple_proxy,节点选择
 
 # DIRECT
+- RULE-SET,custom-direct,DIRECT
 - RULE-SET,steam-cn,DIRECT
 - RULE-SET,netbease,DIRECT
 - RULE-SET,china_max,DIRECT
@@ -191,6 +192,12 @@ rules:
 - MATCH,节点选择
 
 rule-providers:
+  custom-direct:
+    type: http
+    behavior: classical
+    path: "./rule_provider/custom-direct.yaml"
+    url: "https://raw.githubusercontent.com/Shea11012/config/main/rules/clash-rules/direct.yaml"
+    interval: 86400
   adLite:
     type: http
     behavior: classical
@@ -243,7 +250,7 @@ rule-providers:
     type: http
     behavior: domain
     path: "./rule_provider/china_domain.txt"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain.txt"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain_For_Clash.txt"
     interval: 86400
   china_ip:
     type: http
@@ -261,7 +268,7 @@ rule-providers:
     type: http
     behavior: domain
     path: "./rule_provider/proxy_domain.txt"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain.txt"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain_For_Clash.txt"
     interval: 86400
   lan:
     type: http
