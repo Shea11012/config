@@ -171,13 +171,6 @@ rules:
 - RULE-SET,adLite,REJECT
 - RULE-SET,adLite-domain,REJECT
 
-# PROXY
-- RULE-SET,openai,chatgpt
-- RULE-SET,steam,节点选择
-- RULE-SET,proxy,节点选择
-- RULE-SET,proxy_domain,节点选择
-- RULE-SET,apple_proxy,节点选择
-
 # DIRECT
 - RULE-SET,custom-direct,DIRECT
 - RULE-SET,steam-cn,DIRECT
@@ -187,6 +180,13 @@ rules:
 - RULE-SET,china_ip,DIRECT,no-resolve
 - RULE-SET,apple,DIRECT
 - RULE-SET,lan,DIRECT
+
+# PROXY
+- RULE-SET,openai,chatgpt
+- RULE-SET,steam,节点选择
+- RULE-SET,proxy,节点选择
+- RULE-SET,proxy_domain,节点选择
+- RULE-SET,apple_proxy,节点选择
 
 # FINAL
 - MATCH,节点选择
