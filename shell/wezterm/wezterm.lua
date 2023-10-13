@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local domains = require 'domains'
 local act = wezterm.action
 
 local default_prog = {}
@@ -7,14 +8,9 @@ local xim_im_name = ''
 
 -- windows
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-     default_prog = {'pwsh', '-nol'}
+    default_prog = { 'pwsh', '-nol' }
     --   default_prog = { 'nu' }
     table.insert(launch_menu, { label = 'pwsh', args = { 'pwsh', '-NoLogo' } })
-
-    table.insert(launch_menu, {
-        label = "arch-wsl",
-        args = { 'wsl', '-d', 'arch', '--cd', '~' }
-    })
 
     table.insert(launch_menu, {
         label = 'nushell',
@@ -129,7 +125,9 @@ local config = {
     leader = leader,
     disable_default_key_bindings = false,
     use_dead_keys = false,
-    keys = keys
+    keys = keys,
+    wsl_domains = domains.wsl_domains,
+    ssh_domains = domains.ssh_domains,
 }
 
 return config
