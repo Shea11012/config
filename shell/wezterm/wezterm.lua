@@ -47,21 +47,19 @@ end)
 -- Text = ' ' .. index .. process .. ' '
 -- } }
 -- end)
-
-
-local leader = { key = 'b', mods = 'CTRL' }
 local keys = {
-    { key = 'c', mods = 'LEADER', action = act { SpawnTab = 'CurrentPaneDomain' } },
     {
-        key = 'x',
-        mods = 'LEADER',
-        action = act { CloseCurrentPane = { confirm = true } }
+        key = 'w',
+        mods = 'CTRL',
+        action = act { CloseCurrentPane = { confirm = false } }
     },
     {
-        key = 'X',
-        mods = 'LEADER',
-        action = act { CloseCurrentTab = { confirm = true } }
-    }, { key = 'l', mods = 'ALT', action = act.ShowLauncher }, -- pane
+        key = '-',
+        mods = 'CTRL',
+        action = act { CloseCurrentTab = { confirm = false } }
+    },
+    { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
+    { key = 'F3', mods = 'NONE', action = act.ShowLauncher }, -- pane
     {
         key = 'LeftArrow',
         mods = 'ALT',
@@ -89,6 +87,19 @@ local keys = {
         mods = 'WIN',
         action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }
     },
+    -- rename tab
+    {
+        key = 'R',
+        mods = 'CTRL|SHIFT',
+        action = act.PromptInputLine({
+            description = 'Enter new name for tab',
+            action = wezterm.action_callback(function(window, pane, line)
+                if line then
+                    window:active_tab():set_title(line)
+                end
+            end)
+        })
+    }
 }
 
 local config = {
@@ -121,7 +132,6 @@ local config = {
     tab_max_width = 25,
 
     -- keys
-    leader = leader,
     disable_default_key_bindings = false,
     use_dead_keys = false,
     keys = keys,
