@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-local domains = require 'domains'
 local act = wezterm.action
 
 local default_prog = {}
@@ -31,23 +30,23 @@ wezterm.on('gui-startup', function(cmd)
     window:gui_window():maximize()
 end)
 
-function basename(s)
-    return string.gsub(s, '(.*[/\\])(.*)', '%2')
-end
-
-wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-    local pane = tab.active_pane
-    local process = basename(pane.foreground_process_name)
-
-    local index = ""
-    if #tabs > 1 then
-        index = string.format("%d: ", tab.tab_index + 1)
-    end
-
-    return { {
-        Text = ' ' .. index .. process .. ' '
-    } }
-end)
+-- function basename(s)
+-- return string.gsub(s, '(.*[/\\])(.*)', '%2')
+-- end
+--
+-- wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+-- local pane = tab.active_pane
+-- local process = basename(pane.foreground_process_name)
+--
+-- local index = ""
+-- if #tabs > 1 then
+-- index = string.format("%d: ", tab.tab_index + 1)
+-- end
+--
+-- return { {
+-- Text = ' ' .. index .. process .. ' '
+-- } }
+-- end)
 
 
 local leader = { key = 'b', mods = 'CTRL' }
@@ -126,8 +125,6 @@ local config = {
     disable_default_key_bindings = false,
     use_dead_keys = false,
     keys = keys,
-    wsl_domains = domains.wsl_domains,
-    ssh_domains = domains.ssh_domains,
 }
 
 return config
