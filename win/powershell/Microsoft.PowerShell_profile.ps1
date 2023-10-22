@@ -7,4 +7,6 @@ $env:GOBREW_REGISTRY="https://golang.google.cn/dl/"
 $a = @("rm","del","dir","cat","pwd","mv","ls","kill")
 Remove-Alias -Name $a
 
+Set-Alias -Name ls -Value lsd
+
 Invoke-Expression (& { (zoxide init powershell | Out-String) })

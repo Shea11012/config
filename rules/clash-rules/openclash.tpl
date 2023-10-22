@@ -184,6 +184,9 @@ rules:
 - RULE-SET,china_ip,DIRECT,no-resolve
 - RULE-SET,apple,DIRECT
 - RULE-SET,lan,DIRECT
+- IP-CIDR,119.28.28.28/32,DIRECT,no-resolve
+- DOMAIN-KEYWORD,-cn,DIRECT
+- GEOIP,CN,DIRECT
 
 # PROXY
 - RULE-SET,openai,chatgpt
