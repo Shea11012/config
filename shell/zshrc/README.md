@@ -34,10 +34,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - dog instead of dig
 - jql instead of jq
 - wezterm cross-platform terminal write by rust 
+- xh instead of curl
 
 ```shell
 paru -S uutils-coreutils bat lsd fd hyperfine ripgrep tealdeer zoxide bottom ouch fnm-bin
-paru -S dog jql just fzf starship wezterm
+paru -S dog jql just fzf starship wezterm xh
 ```
 
 2.2 language tool
