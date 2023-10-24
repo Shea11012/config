@@ -68,9 +68,10 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>tr", ":NvimTreeRefresh<CR>", opt)
 
 -- toggleterm
-map("n", "``", [[:execute v:count "ToggleTerm direction=horizontal"<CR>]], opt)
+map("n", "<C-\\>", [[:execute v:count "ToggleTerm direction=horizontal"<CR>]],
+    opt)
 -- map("i", "``", "<Esc><Cmd>ToggleTerm direction=horizontal<CR>", opt)
-map("t", "``", "<Esc><Cmd>ToggleTerm<CR>", opt)
+map("t", "<C-\\>", "<Esc><Cmd>ToggleTerm<CR>", opt)
 
 -- bufferline
 -- 左右tab切换

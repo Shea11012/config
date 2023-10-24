@@ -20,3 +20,6 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 # alias
 alias vim="nvim"
+alias ls="lsd"
+alias ll="ls -la"
+alias lt="ls --tree --depth 2"
