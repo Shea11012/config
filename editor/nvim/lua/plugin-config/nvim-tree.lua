@@ -9,7 +9,6 @@ nvim_tree.setup({
     view = {
         width = 34,
         side = "left",
-        hide_root_folder = false,
         number = false,
         relativenumber = false,
         signcolumn = "yes"
