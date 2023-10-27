@@ -7,7 +7,7 @@
 
 [core]
     editor = nvim
-    pager = "less -x1,5"
+    pager = "bat"
 
 [alias]
     st = "status -s"
