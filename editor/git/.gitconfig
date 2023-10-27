@@ -1,0 +1,21 @@
+[user]
+    name = "mxy"
+    email = "mxyinvoker@gmail.com"
+
+[includeIf "gitdir:~/workspace/work/"]
+    path = ~/workspace/mxy/config/editor/git/.work.gitconfig
+
+[core]
+    editor = nvim
+    pager = "less -x1,5"
+
+[alias]
+    st = "status -s"
+    ci = "commit -m"
+    co = checkout
+    cb = "checkout -b"
+    br = "branch -vv"
+    lg = "log --name-status"
+
+[pull]
+    rebase = true

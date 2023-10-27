@@ -2,7 +2,7 @@
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--inline-info --height 60% --ansi --border"
 # rootless docker daemon
-if command -v rg &> /dev/null && ! uname -a | rg -i "wsl"; then
+if command -v rg &> /dev/null && ! uname -a | rg -i "wsl" > /dev/null; then
     export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 fi
 
