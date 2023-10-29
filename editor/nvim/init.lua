@@ -19,4 +19,6 @@ require("keybindings")
 
 require('plugin-config')
 
+require('languages')
+
 require('custom')

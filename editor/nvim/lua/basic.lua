@@ -1,3 +1,5 @@
+-- vim.g.loaded_python3_provider = 0
+vim.g.ensure_installed = {"rust", "go"}
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
 

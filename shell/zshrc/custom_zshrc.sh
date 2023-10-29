@@ -18,6 +18,9 @@ eval "$(zoxide init zsh)"
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
+# go
+export PATH="$HOME/go/bin/:$PATH"
+
 # alias
 alias vim="nvim"
 alias ls="lsd"

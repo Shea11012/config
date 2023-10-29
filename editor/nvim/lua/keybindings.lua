@@ -13,7 +13,7 @@ map("n", "$", "g_", opt)
 map("n", "g_", "$", opt)
 
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>x", ":wqa<CR>", opt)
+map("n", "<leader>q", "<Cmd>confirm q<CR>", opt)
 -- map("n", "<leader>q", ":qa!<cr>", opt)
 
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'",
@@ -78,7 +78,7 @@ map("t", "<C-\\>", "<Esc><Cmd>ToggleTerm<CR>", opt)
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- 关闭当前tab
-map("n", "<leader>q", ":bd<CR>", opt)
+map("n", "<leader>c", ":bd<CR>", opt)
 
 -- markdownpreview
 map("n", "<F12>", ":MarkdownPreviewToggle<CR>", opt)

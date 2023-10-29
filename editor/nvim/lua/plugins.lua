@@ -54,26 +54,13 @@ return {
     }, -- fzf.vim
     {"junegunn/fzf.vim"}, -- null-ls.nvim
     {"jose-elias-alvarez/null-ls.nvim"}, -- lsp-zero
+    -- lsp
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        "neovim/nvim-lspconfig",
         dependencies = {
-            {"nvim-lua/plenary.nvim"}, -- LSP Support
-            {'neovim/nvim-lspconfig'}, -- Required
-            {
-                'williamboman/mason.nvim',
-                build = function() pcall(vim.cmd, 'MasonUpdate') end
-            }, -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'}, -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'hrsh7th/cmp-buffer'}, -- Optional
-            {'hrsh7th/cmp-path'}, -- Optional
-            {'hrsh7th/cmp-nvim-lua'}, -- Optional
-            -- Snippets
-            {'L3MON4D3/LuaSnip'}, -- Required
-            {'rafamadriz/friendly-snippets'} -- Optional
+            {"williamboman/mason.nvim"}, {"williamboman/mason-lspconfig.nvim"},
+            {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-cmdline"}, {"hrsh7th/nvim-cmp"}
         }
     }, {
         "olexsmir/gopher.nvim",
@@ -104,5 +91,5 @@ return {
         "kylechui/nvim-surround",
         event = "VeryLazy",
         config = function() require("nvim-surround").setup() end
-    }, {'simrat39/rust-tools.nvim', ft = "rs"}
+    }, {'simrat39/rust-tools.nvim', ft = "rs"}, {"folke/neodev.nvim", opts = {}}
 }
