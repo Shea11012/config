@@ -20,3 +20,5 @@ Set-Alias -Name ll -Value Get-ll
 Set-Alias -Name lt -Value Get-lt
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+fnm env --use-on-cd | Out-String | Invoke-Expression
