@@ -1,5 +1,5 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
-return {
+local options = {
   opt = {
     -- set to true or false etc.
     list = true,
@@ -25,6 +25,20 @@ return {
     resession_enabled = false, -- enable experimental resession.nvim session management (will be default in AstroNvim v4)
   },
 }
+
+if vim.loop.os_uname().sysname == "Windows_NT" then
+  vim.opt.shell = "pwsh.exe"
+  vim.opt.shellcmdflag =
+    "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+
+  vim.cmd [[
+        let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+        let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+        set shellquote= shellxquote=
+  ]]
+end
+
+return options
 -- If you need more control, you can use the function()...end notation
 -- return function(local_vim)
 --   local_vim.opt.relativenumber = true
