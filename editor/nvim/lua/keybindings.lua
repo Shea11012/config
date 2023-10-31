@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local opt = {noremap = true, silent = true}
+local opt = { noremap = true, silent = true }
 
 local map = vim.api.nvim_set_keymap
 
@@ -16,10 +16,8 @@ map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>q", "<Cmd>confirm q<CR>", opt)
 -- map("n", "<leader>q", ":qa!<cr>", opt)
 
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'",
-               {expr = true, silent = true})
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'",
-               {expr = true, silent = true})
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- 上下滚动浏览
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏
@@ -27,8 +25,8 @@ map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
 
 -- magic search
-map("n", "/", "/\\v", {noremap = true, silent = false})
-map("v", "/", "/\\v", {noremap = true, silent = false})
+map("n", "/", "/\\v", { noremap = true, silent = false })
+map("v", "/", "/\\v", { noremap = true, silent = false })
 
 -- visual模式下缩进代码
 map("v", "<", "<gv", opt)
@@ -68,8 +66,7 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>tr", ":NvimTreeRefresh<CR>", opt)
 
 -- toggleterm
-map("n", "<C-\\>", [[:execute v:count "ToggleTerm direction=horizontal"<CR>]],
-    opt)
+map("n", "<C-\\>", [[:execute v:count "ToggleTerm direction=horizontal"<CR>]], opt)
 -- map("i", "``", "<Esc><Cmd>ToggleTerm direction=horizontal<CR>", opt)
 map("t", "<C-\\>", "<Esc><Cmd>ToggleTerm<CR>", opt)
 
@@ -85,12 +82,12 @@ map("n", "<F12>", ":MarkdownPreviewToggle<CR>", opt)
 
 -- telescope
 -- 正则匹配查找文件
-map("n", "<leader>fw", '', {
-    noremap = true,
-    silent = true,
-    callback = function()
-        require("telescope").extensions.live_grep_args.live_grep_args()
-    end
+map("n", "<leader>fw", "", {
+  noremap = true,
+  silent = true,
+  callback = function()
+    require("telescope").extensions.live_grep_args.live_grep_args()
+  end,
 })
 
 -- 查找文件
