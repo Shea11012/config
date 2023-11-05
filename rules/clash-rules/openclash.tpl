@@ -175,12 +175,10 @@ rules:
 - RULE-SET,adLite-domain,REJECT
 
 # DIRECT
-- RULE-SET,custom-direct,DIRECT
-- RULE-SET,steam-cn,DIRECT
-- RULE-SET,netbease,DIRECT
+- RULE-SET,custom_direct,DIRECT
 - RULE-SET,china_max,DIRECT
-- RULE-SET,china_domain,DIRECT
-- RULE-SET,china_ip,DIRECT,no-resolve
+- RULE-SET,chinaMax_domain,DIRECT
+- RULE-SET,chinaMax_ip,DIRECT,no-resolve
 - RULE-SET,apple,DIRECT
 - RULE-SET,lan,DIRECT
 - DOMAIN-KEYWORD,-cn,DIRECT
@@ -188,7 +186,6 @@ rules:
 
 # PROXY
 - RULE-SET,openai,chatgpt
-- RULE-SET,steam,节点选择
 - RULE-SET,proxy,节点选择
 - RULE-SET,proxy_domain,节点选择
 - RULE-SET,apple_proxy,节点选择
@@ -197,10 +194,10 @@ rules:
 - MATCH,节点选择
 
 rule-providers:
-  custom-direct:
+  custom_direct:
     type: http
     behavior: classical
-    path: "./rule_provider/custom-direct.yaml"
+    path: "./rule_provider/custom_direct.yaml"
     url: "https://raw.githubusercontent.com/Shea11012/config/main/rules/clash-rules/direct.yaml"
     interval: 86400
   adLite:
@@ -214,18 +211,6 @@ rule-providers:
     behavior: domain
     path: "./rule_provider/adLite-domain.yaml"
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
-    interval: 86400
-  steam-cn:
-    type: http
-    behavior: classical
-    path: "./rule_provider/steam-cn.yaml"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml"
-    interval: 86400
-  steam:
-    type: http
-    behavior: classical
-    path: "./rule_provider/steam.yaml"
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml"
     interval: 86400
   openai:
     type: http
@@ -251,13 +236,13 @@ rule-providers:
     path: "./rule_provider/china_max.yaml"
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax.yaml"
     interval: 86400
-  china_domain:
+  chinaMax_domain:
     type: http
     behavior: domain
-    path: "./rule_provider/china_domain.txt"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain_For_Clash.txt"
+    path: "./rule_provider/chinaMax_Domain.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml"
     interval: 86400
-  china_ip:
+  chinaMax_ip:
     type: http
     behavior: ipcidr
     path: "./rule_provider/china_ip.yaml"
@@ -272,8 +257,8 @@ rule-providers:
   proxy_domain:
     type: http
     behavior: domain
-    path: "./rule_provider/proxy_domain.txt"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain_For_Clash.txt"
+    path: "./rule_provider/proxy_domain.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain.yaml"
     interval: 86400
   lan:
     type: http
