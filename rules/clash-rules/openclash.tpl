@@ -24,7 +24,7 @@ dns:
   - https://dns.twnic.tw/dns-query
   - https://dns.google/dns-query
   - https://cloudflare-dns.com/dns-query
-  - tls://8.8.4.4:853
+  - 8.8.4.4
   fallback-filter:
     geoip: true
     ipcidr: [240.0.0.0/4, 0.0.0.0/32]
@@ -178,15 +178,13 @@ rules:
 - RULE-SET,custom-direct,DIRECT
 - RULE-SET,steam-cn,DIRECT
 - RULE-SET,netbease,DIRECT
-- RULE-SET,china_max_classical,DIRECT
 - RULE-SET,china_max,DIRECT
 - RULE-SET,china_domain,DIRECT
 - RULE-SET,china_ip,DIRECT,no-resolve
 - RULE-SET,apple,DIRECT
 - RULE-SET,lan,DIRECT
-- IP-CIDR,119.28.28.28/32,DIRECT,no-resolve
 - DOMAIN-KEYWORD,-cn,DIRECT
-- GEOIP,CN,DIRECT
+- GEOIP,CN,DIRECT,no-resolve
 
 # PROXY
 - RULE-SET,openai,chatgpt
@@ -247,12 +245,6 @@ rule-providers:
     path: "./rule_provider/apple_proxy.yaml"
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.yaml"
     interval: 86400
-  china_max_classical:
-    type: http
-    behavior: classical
-    path: "./rule_provider/china_max_classical.yaml"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6.yaml"
-    interval: 86400
   china_max:
     type: http
     behavior: classical
@@ -288,10 +280,4 @@ rule-providers:
     behavior: classical
     path: "./rule_provider/lan.yaml"
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
-    interval: 86400
-  netbease:
-    type: http
-    behavior: classical
-    path: "./rule_provider/netbease.yaml"
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEase/NetEase.yaml"
     interval: 86400

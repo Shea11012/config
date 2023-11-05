@@ -69,16 +69,9 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "C:/wsl/Arch/Arch.exe",
                 "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
                 "hidden": false,
                 "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": false,
-                "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
             },
             {
@@ -198,129 +191,255 @@
             "brightYellow": "#E4C07A",
             "cursorColor": "#4F525D",
             "cyan": "#0997B3",
+
             "foreground": "#383A42",
+
             "green": "#50A14F",
+
             "name": "One Half Light",
+
             "purple": "#A626A4",
+
             "red": "#E45649",
+
             "selectionBackground": "#FFFFFF",
+
             "white": "#FAFAFA",
+
             "yellow": "#C18301"
+
         },
+
         {
+
             "background": "#002B36",
+
             "black": "#002B36",
+
             "blue": "#268BD2",
+
             "brightBlack": "#073642",
+
             "brightBlue": "#839496",
+
             "brightCyan": "#93A1A1",
+
             "brightGreen": "#586E75",
+
             "brightPurple": "#6C71C4",
+
             "brightRed": "#CB4B16",
+
             "brightWhite": "#FDF6E3",
+
             "brightYellow": "#657B83",
+
             "cursorColor": "#FFFFFF",
+
             "cyan": "#2AA198",
+
             "foreground": "#839496",
+
             "green": "#859900",
+
             "name": "Solarized Dark",
+
             "purple": "#D33682",
+
             "red": "#DC322F",
+
             "selectionBackground": "#FFFFFF",
+
             "white": "#EEE8D5",
+
             "yellow": "#B58900"
+
         },
+
         {
+
             "background": "#FDF6E3",
+
             "black": "#002B36",
+
             "blue": "#268BD2",
+
             "brightBlack": "#073642",
+
             "brightBlue": "#839496",
+
             "brightCyan": "#93A1A1",
+
             "brightGreen": "#586E75",
+
             "brightPurple": "#6C71C4",
+
             "brightRed": "#CB4B16",
+
             "brightWhite": "#FDF6E3",
+
             "brightYellow": "#657B83",
+
             "cursorColor": "#002B36",
+
             "cyan": "#2AA198",
+
             "foreground": "#657B83",
+
             "green": "#859900",
+
             "name": "Solarized Light",
+
             "purple": "#D33682",
+
             "red": "#DC322F",
+
             "selectionBackground": "#FFFFFF",
+
             "white": "#EEE8D5",
+
             "yellow": "#B58900"
+
         },
+
         {
+
             "background": "#000000",
+
             "black": "#000000",
+
             "blue": "#3465A4",
+
             "brightBlack": "#555753",
+
             "brightBlue": "#729FCF",
+
             "brightCyan": "#34E2E2",
+
             "brightGreen": "#8AE234",
+
             "brightPurple": "#AD7FA8",
+
             "brightRed": "#EF2929",
+
             "brightWhite": "#EEEEEC",
+
             "brightYellow": "#FCE94F",
+
             "cursorColor": "#FFFFFF",
+
             "cyan": "#06989A",
+
             "foreground": "#D3D7CF",
+
             "green": "#4E9A06",
+
             "name": "Tango Dark",
+
             "purple": "#75507B",
+
             "red": "#CC0000",
+
             "selectionBackground": "#FFFFFF",
+
             "white": "#D3D7CF",
+
             "yellow": "#C4A000"
+
         },
+
         {
+
             "background": "#FFFFFF",
+
             "black": "#000000",
+
             "blue": "#3465A4",
+
             "brightBlack": "#555753",
+
             "brightBlue": "#729FCF",
+
             "brightCyan": "#34E2E2",
+
             "brightGreen": "#8AE234",
+
             "brightPurple": "#AD7FA8",
+
             "brightRed": "#EF2929",
+
             "brightWhite": "#EEEEEC",
+
             "brightYellow": "#FCE94F",
+
             "cursorColor": "#000000",
+
             "cyan": "#06989A",
+
             "foreground": "#555753",
+
             "green": "#4E9A06",
+
             "name": "Tango Light",
+
             "purple": "#75507B",
+
             "red": "#CC0000",
+
             "selectionBackground": "#FFFFFF",
+
             "white": "#D3D7CF",
+
             "yellow": "#C4A000"
+
         },
+
         {
+
             "background": "#000000",
+
             "black": "#000000",
+
             "blue": "#000080",
+
             "brightBlack": "#808080",
+
             "brightBlue": "#0000FF",
+
             "brightCyan": "#00FFFF",
+
             "brightGreen": "#00FF00",
+
             "brightPurple": "#FF00FF",
+
             "brightRed": "#FF0000",
+
             "brightWhite": "#FFFFFF",
+
             "brightYellow": "#FFFF00",
+
             "cursorColor": "#FFFFFF",
+
             "cyan": "#008080",
+
             "foreground": "#C0C0C0",
+
             "green": "#008000",
+
             "name": "Vintage",
+
             "purple": "#800080",
+
             "red": "#800000",
+
             "selectionBackground": "#FFFFFF",
+
             "white": "#C0C0C0",
+
             "yellow": "#808000"
+
         }
+
     ]
+
 }
