@@ -13,21 +13,21 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
     table.insert(launch_menu, {
         label = 'nushell',
-        cwd = 'D:/scoop/shims/nu.exe',
+        cwd = 'nu',
         args = { 'nu' }
     })
 end
 
 -- linux
-if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
-    default_prog = { 'zsh', '-l' }
-    xim_im_name = 'fcitx5'
+if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+  default_prog = { "zsh", "-l" }
+  xim_im_name = "fcitx5"
 end
 
 -- startup
-wezterm.on('gui-startup', function(cmd)
-    local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
 end)
 
 -- function basename(s)
@@ -48,58 +48,59 @@ end)
 -- } }
 -- end)
 local keys = {
-    {
-        key = 'w',
-        mods = 'CTRL',
-        action = act { CloseCurrentPane = { confirm = false } }
-    },
-    {
-        key = '-',
-        mods = 'CTRL',
-        action = act { CloseCurrentTab = { confirm = false } }
-    },
-    { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
-    { key = 'F3', mods = 'NONE', action = act.ShowLauncher }, -- pane
-    {
-        key = 'LeftArrow',
-        mods = 'ALT',
-        action = act { ActivatePaneDirection = 'Next' }
-    }, {
-    key = 'RightArrow',
-    mods = 'ALT',
-    action = act { ActivatePaneDirection = 'Prev' }
-},
-    -- { key = 'UpArrow',    mods = 'ALT',    action = act { ActivatePaneDirection = 'Up' } },
-    -- { key = 'DownArrow',  mods = 'ALT',    action = act { ActivatePaneDirection = 'Down' } },
+  {
+    key = "w",
+    mods = "CTRL",
+    action = act { CloseCurrentPane = { confirm = false } },
+  },
+  {
+    key = "-",
+    mods = "CTRL",
+    action = act { CloseCurrentTab = { confirm = false } },
+  },
+  { key = "F2", mods = "NONE", action = act.ActivateCommandPalette },
+  { key = "F3", mods = "NONE", action = act.ShowLauncher }, -- pane
+  {
+    key = "LeftArrow",
+    mods = "ALT",
+    action = act { ActivatePaneDirection = "Next" },
+  },
+  {
+    key = "RightArrow",
+    mods = "ALT",
+    action = act { ActivatePaneDirection = "Prev" },
+  },
+  -- { key = 'UpArrow',    mods = 'ALT',    action = act { ActivatePaneDirection = 'Up' } },
+  -- { key = 'DownArrow',  mods = 'ALT',    action = act { ActivatePaneDirection = 'Down' } },
 
-    -- tab
-    { key = 'LeftArrow',  mods = 'SHIFT', action = act.ActivateTabRelative(-1) },
-    { key = 'RightArrow', mods = 'SHIFT', action = act.ActivateTabRelative(1) },
+  -- tab
+  { key = "LeftArrow", mods = "SHIFT", action = act.ActivateTabRelative(-1) },
+  { key = "RightArrow", mods = "SHIFT", action = act.ActivateTabRelative(1) },
 
-    -- split
-    {
-        key = '-',
-        mods = 'WIN',
-        action = act.SplitVertical { domain = 'CurrentPaneDomain' }
+  -- split
+  {
+    key = "-",
+    mods = "WIN",
+    action = act.SplitVertical { domain = "CurrentPaneDomain" },
+  },
+  {
+    key = "\\",
+    mods = "WIN",
+    action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
+  },
+  -- rename tab
+  {
+    key = "R",
+    mods = "CTRL|SHIFT",
+    action = act.PromptInputLine {
+      description = "Enter new name for tab",
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
     },
-    {
-        key = '\\',
-        mods = 'WIN',
-        action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }
-    },
-    -- rename tab
-    {
-        key = 'R',
-        mods = 'CTRL|SHIFT',
-        action = act.PromptInputLine({
-            description = 'Enter new name for tab',
-            action = wezterm.action_callback(function(window, pane, line)
-                if line then
-                    window:active_tab():set_title(line)
-                end
-            end)
-        })
-    }
+  },
 }
 
 local config = {
@@ -122,8 +123,8 @@ local config = {
     inactive_pane_hsb = { hue = 1.0, saturation = 1.0, brightness = 1.0 },
 
     -- font
-    font = wezterm.font_with_fallback { 'JetBrainsMono NF', 'FiraCode Nerd Font', 'Monospace' },
-    font_size = 16,
+    font = wezterm.font_with_fallback { 'JetBrainsMono Nerd Font Mono', 'Microsoft YaHei', },
+    font_size = 18,
     -- freetype_load_target = "Mono",
     warn_about_missing_glyphs = false,
 

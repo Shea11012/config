@@ -26,17 +26,22 @@ local options = {
   },
 }
 
-if vim.loop.os_uname().sysname == "Windows_NT" then
-  vim.opt.shell = "pwsh.exe"
-  vim.opt.shellcmdflag =
-    "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+-- if vim.loop.os_uname().sysname == "Windows_NT" then
+--   vim.cmd [[
+--     let &shell = 'nu'
+--     let &shellcmdflag = '-c'
+--     let &shellquote = ""
+--     let &shellxquote = ""
+--   ]]
+-- --   vim.opt.shellcmdflag =
+-- --     "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
 
-  vim.cmd [[
-        let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-        let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-        set shellquote= shellxquote=
-  ]]
-end
+-- --   vim.cmd [[
+-- --         let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- --         let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- --         set shellquote= shellxquote=
+-- --   ]]
+-- end
 
 return options
 -- If you need more control, you can use the function()...end notation
