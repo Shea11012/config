@@ -1,0 +1,183 @@
+allow-lan: true
+mode: rule
+mixed-port: 7890
+tproxy-port: 7894
+unified-delay: false
+tcp-concurrent: true
+find-process-mode: 'off'
+ipv6: false
+log-level: info
+external-ui: "./ui"
+external-controller: 0.0.0.0:9090
+prefer-h3: true
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:7874
+  enhanced-mode: fake-ip
+  use-hosts: true
+# 默认的dns查询服务器
+  nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+# 用作解析域名dns服务器
+  default-nameserver:
+  - 119.29.29.29
+  - 223.5.5.5
+# dns查询失败后的fallback，确保dns正确
+  fallback:
+  - https://208.67.222.222/dns-query
+  - https://dns.google/dns-query
+  - https://cloudflare-dns.com/dns-query
+  - tls://8.8.4.4
+# 指定DNS代理策略
+  nameserver-policy:
+    'rule-set:direct,steam-cn': ['https://dns.alidns.com/dns-query','https://doh.pub/dns-query']
+  fallback-filter:
+    geoip: true
+    ipcidr: [240.0.0.0/4, 0.0.0.0/32]
+
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443,8443]
+  skip-domain:
+    - Mijia Cloud
+
+geodata-mode: true
+geox-url:
+  geoip: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
+  geosite: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+  mmdb: https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb
+
+tun:
+  enable: true
+  stack: system
+  device: utun
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+  - tcp://any:53
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+proxy-providers:
+  provider-1:
+    type: http
+    interval: 3600
+    path: ./sub/meta1.yaml
+    url: {url}
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+
+  provider-2:
+    type: http
+    interval: 3600
+    path: ./sub/meta2.yaml
+    url: {url}
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+
+proxy-groups:
+  - name: 默认
+    type: select
+    proxies: [DIRECT,手动选择,香港,台湾,日本,新加坡,其他地区]
+
+  - name: 手动选择
+    type: select
+    use: [provider-1,provider-2]
+
+  - name: AI
+    type: select
+    use: [provider-1]
+    proxies: [chatgpt]
+
+  - name: chatgpt
+    type: select
+    use: [provider-2]
+    filter: "(?i)ChatGPT"
+
+  - name: 香港
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)港|hk|hongkong|hong kong"
+
+  - name: 台湾
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)台|tw|taiwan"
+
+  - name: 新加坡
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)(新|sg|singapore)"
+  
+  - name: 日本
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)日本|jp|japan"
+
+  - name: 韩国
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)韩"
+  
+  - name: 美国
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)美|us|unitedstates|united states"
+
+  - name: 其他地区
+    type: select
+    use: [provider-1,provider-2]
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|韩|美|us|unitedstates)).*"
+
+rule-providers:
+  direct:
+    type: file
+    behavior: classical
+    path: "./rule_provider/direct.yaml"
+  steam-cn:
+    type: file
+    behavior: classical
+    path: "./rule_provider/steam-cn.yaml"
+  adLite:
+    type: http
+    behavior: classical
+    path: "./rule_provider/adLite.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml"
+    interval: 86400
+  adLite-domain:
+    type: http
+    behavior: domain
+    path: "./rule_provider/adLite-domain.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
+    interval: 86400
+ 
+
+rules:
+  # 过滤广告
+  - RULE-SET,adLite,REJECT
+  - RULE-SET,adLite-domain,REJECT
+
+  # DIRECT
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,steam-cn,DIRECT
+  - GEOSITE,openai,AI
+  
+  # FINAL
+  - MATCH,默认
