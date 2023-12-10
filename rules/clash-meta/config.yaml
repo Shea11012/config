@@ -178,6 +178,7 @@ rules:
   - RULE-SET,direct,DIRECT
   - RULE-SET,steam-cn,DIRECT
   - GEOSITE,openai,AI
+    GEOSITE,jetbrains-ai,AI
   
   # FINAL
   - MATCH,默认
