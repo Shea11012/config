@@ -171,14 +171,14 @@ rule-providers:
 
 rules:
   # 过滤广告
-  - RULE-SET,adLite,REJECT
-  - RULE-SET,adLite-domain,REJECT
-
+  # - RULE-SET,adLite,REJECT
+  # - RULE-SET,adLite-domain,REJECT
+  - GEOSITE,category-ads-all,REJECT
   # DIRECT
   - RULE-SET,direct,DIRECT
   - RULE-SET,steam-cn,DIRECT
   - GEOSITE,openai,AI
-    GEOSITE,jetbrains-ai,AI
+  - GEOSITE,jetbrains-ai,AI
   
   # FINAL
   - MATCH,默认
