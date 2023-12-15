@@ -5,8 +5,10 @@ local options = {
     list = true,
     listchars = { tab = "»·", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     relativenumber = false,
-    tabstop = 4,
-    expandtab = true,
+    tabstop = 4, -- 设置tab宽度为4个空格
+    softtabstop = 4, -- 在编辑模式时按退格时的缩回长度
+    expandtab = true, -- 用空格表示tab
+    shiftwidth = 4, -- shift宽度
     showbreak = "↪ ",
     swapfile = false,
     number = true, -- sets vim.opt.number
