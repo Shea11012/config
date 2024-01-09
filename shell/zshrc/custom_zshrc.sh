@@ -34,4 +34,4 @@ fi
 alias vim="nvim"
 alias ls="lsd"
 alias ll="ls -la"
-alias lt="ls --tree --depth 2"
+alias lt="ls -a --tree --depth 2"
