@@ -1,0 +1,14 @@
+%linux
+
+# mount heiheihei
+sudo mount -o "uid=$(id -u),gid=$(id -g),umask=022"
+
+# switch monitor off/on dp-1
+; wlr-randr 适用于不使用niri的环境
+niri msg output <monitor> <switch>
+;wlr-randr --output DP-1 --<switch>
+
+# move chat to dp-1
+niri msg action move-workspace-to-monitor --reference 'chat' <monitor>
+
+$monitor: niri msg outputs | rg --color=never 'Output'| fzf | rg --color=never -r '$1' ".*\(([^)]+)\)"

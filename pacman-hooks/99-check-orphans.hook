@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = checking orphans package...
+When = PostTransaction
+Exec = /usr/bin/bash -c "/usr/bin/pacman -Qdt || true"

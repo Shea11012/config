@@ -1,0 +1,4 @@
+% ffmpeg
+
+# convert video to webp
+ffmpeg -i <video> -vf "scale=<width>:-1,fps=30" -lossless 0 -q:v 85 -compression_level 3 -vcodec libwebp -preset picture -an -fps_mode passthrough -loop 0 <name>.webp

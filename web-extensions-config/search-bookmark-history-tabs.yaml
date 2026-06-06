@@ -1,0 +1,24 @@
+customSearchEngines:
+  - alias: ["gh"]
+    name: GitHub
+    blank: https://github.com
+    urlPrefix: https://github.com/search?q=$s
+  - alias: ["reddit"]
+    name: reddit
+    urlPrefix: https://reddit.com/r/$s
+    blank: https://reddit.com
+  - alias: ["ap"]
+    name: arch package
+    urlPrefix: https://archlinux.org/packages?q=$s
+  - alias: ["aap"]
+    name: arch aur package
+    urlPrefix: https://aur.archlinux.org/packages?O=0&K=$s
+  - alias: ["l-o"]
+    name: local openwrt
+    blank: http://192.168.32.100
+    urlPrefix: http://192.168.32.100/$s
+historyIgnoreList:
+  - http://localhost
+  - http://127.0.0.1
+  - http://192.168.32
+searchStrategy: precise

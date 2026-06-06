@@ -1,0 +1,18 @@
+% restic, resticprofile
+
+# list snapshots
+resticprofile -n <profile> snapshots
+
+# list locks
+resticprofile -n <profile> list locks
+
+# backup
+resticprofile -n <profile> backup
+
+# restore obsidian to linux
+resticprofile -n linux restore -t ~/Documents/obsidian latest:/c/Users/18723/workspace/mxy -i mxy-private-dirary -i mxy-wiki
+
+# restore data to linux
+resticprofile -n linux restore -t ~/Documents latest:/d -i data
+
+$profile: resticprofile profiles | fzf --header-lines 3 | rg -o -P '^\s*\K\w+(?=:)'

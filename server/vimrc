@@ -1,0 +1,44 @@
+syntax on
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set noswapfile
+set nobackup
+set mouse=a
+
+" show location
+set cursorcolumn
+set cursorline
+
+" show
+set ruler
+set number
+set nowrap
+set showcmd
+set showmode
+set showmatch
+
+" search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" tab
+set expandtab
+set smarttab
+set shiftround
+
+" encoding
+set encoding=utf-8
+set number relativenumber
+set history=1000
+set wildmenu
+set clipboard^=unnamedplus
+set lcs=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
+set cursorline
+set autoindent
+set tabstop=4
+set shiftwidth=4

@@ -1,9 +1,0 @@
-rules:
-  - GEOSITE,private,DIRECT
-  - GEOSITE,CN,DIRECT
-  - GEOSITE,apple,DIRECT
-  - GEOSITE,microsoft@cn,DIRECT
-  - GEOSITE,category-games@cn,DIRECT
-
-  - GEOIP,private,DIRECT
-  - GEOIP,CN,DIRECT
