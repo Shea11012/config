@@ -1,0 +1,15 @@
+set quiet
+
+load:
+  echo "load image-tools"
+  docker-compose up -d
+  # just openlist
+
+test:
+  docker container ps -a
+
+backup-openlist:
+  docker container stop openlist
+  mkdir -p ~/Documents/backup/container/openlist/data
+  cp ./openlist/data/data.db ~/Documents/backup/container/openlist/data/
+  docker container start openlist

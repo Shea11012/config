@@ -1,7 +1,7 @@
 ---
 name: mxy-wiki
 version: 2.4.0
-author: mxyinvoker
+author: mxy
 description: |
   通用的元数据驱动个人知识库构建系统。基于 Karpathy llm-wiki 方法论，融合
   元数据替代 index.md、三阶段 lint、反幻觉防御等改进。

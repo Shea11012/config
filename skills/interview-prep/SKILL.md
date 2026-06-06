@@ -2,7 +2,7 @@
 name: interview-prep
 description: "Generate interview questions & answer frameworks from resume bullets — shallow/mid/deep tiers, tech selection defense, safety boundaries, Chinese interview context. Load when user says: 面试准备, prepare for interviews, mock interview, what questions might they ask, how should I answer, what are my weak spots, simulate interview."
 version: 2.5.0
-author: mxyinvoker@gmail.com
+author: mxy
 metadata:
   hermes:
     tags: [interview, career, job-search, preparation, resume]
