@@ -22,9 +22,7 @@ const ipRuleProvider = (url) => defaultRuleProvider(url, "ipcidr");
 
 const ruleProviders = {
   "custom-proxy": {
-    ...domainRuleProvider(
-      "http://arch.local/assets/dotfiles/clash/custom_proxy.yaml",
-    ),
+    ...domainRuleProvider("http://arch.local/assets/clash/custom_proxy.yaml"),
     format: "yaml",
   },
   adrules_domain: domainRuleProvider(

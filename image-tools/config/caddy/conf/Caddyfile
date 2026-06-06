@@ -5,34 +5,14 @@
 	}
 }
 
+# sub-store - 直接反代，自动添加 API 路径前缀
 :8080 {
-	# uri strip_prefix /sub-store
-	# uri query api 'http://sub-store:3002/2cXaAxRGfddmGz2yx1wA
-	reverse_proxy http://sub-store:3001
+	# rewrite * ?api=/2cXaAxRGfddmGz2yx1wA{uri}
+	reverse_proxy sub-store:3002
 }
 
 :80 {
-	@metacubex {
-		header Cookie "*app_context=metacubex*"
-	}
-
-	@fromGPTLoad {
-		header Cookie "*app_context=gpt-load*"
-	}
-
 	handle_path /assets/* {
-		handle @metacubex {
-			rewrite * "/assets{uri}"
-			header x-Route-by "assets_meteacubex"
-			reverse_proxy http://metacubexd
-		}
-
-		handle @fromGPTLoad {
-			rewrite * "/assets{uri}"
-			header x-route-by "assets_gpt-load"
-			reverse_proxy http://gpt-load:3001
-		}
-
 		root * /srv
 		file_server browse
 	}
@@ -45,28 +25,31 @@
 		}
 	}
 
-	handle /sub-store {
-	}
-
-	handle_path /metacubex {
-		reverse_proxy metacubexd {
-			header_down Set-Cookie "app_context=metacubex; Path=/; Max-Age=3600; SameSite=Lax; HttpOnly"
-		}
-	}
-
-	#这是因为会接受类似 /gpt-load/chat/completions 的路由
+	# gpt-load - 重定向到直接端口
 	handle_path /gpt-load* {
-		header Set-Cookie "app_context=gpt-load; Path=/; Max-Age=3600; SameSite=Lax; HttpOnly"
-		reverse_proxy gpt-load:3001
+		redir http://{http.request.host}:3001{uri} permanent
 	}
 
-	handle_path /test* {
-		respond "path: {path}, uri: {uri}"
+	# openlist - 重定向到直接端口
+	handle_path /openlist* {
+		redir http://{http.request.host}:5244{uri} permanent
 	}
-	
-	handle @fromGPTLoad {
-		#rewrite * "/assets{uri}"
-		header x-router-by "gpt-load"
-		reverse_proxy gpt-load:3001
+
+	# openviking API - 重定向到直接端口
+	handle_path /viking/api* {
+		redir http://{http.request.host}:1933{uri} permanent
+	}
+
+	# openviking web UI - 重定向到直接端口
+	handle_path /viking* {
+		redir http://{http.request.host}:8020{uri} permanent
+	}
+
+	handle_path /sub-store {
+		redir http://{http.request.host}:8080?api=/2cXaAxRGfddmGz2yx1wA permanent
+	}
+
+	handle /debug {
+		respond "path: {path}, uri: {uri}"
 	}
 }

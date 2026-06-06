@@ -1,20 +1,6 @@
 name: image-tools
 
-networks:
-  tools:
-    driver: bridge
-
 services:
-  network-service:
-    image: alpine
-    container_name: tool-network
-    ports:
-      - "3003:3001" # gpt-load
-      - "3004:8080" # octopus
-    command: tail -f /dev/null
-    networks:
-      - tools
-
   caddy:
     build: ./caddy
     container_name: caddy-upload
@@ -28,8 +14,7 @@ services:
       - "443:443/udp"
     volumes:
       - ./config/caddy/conf:/etc/caddy
-      - ./config/caddy/assets:/srv
-      - /home/mxy/workspace/config:/srv/dotfiles
+      - ../:/srv
     restart: unless-stopped
 
   sub-store:
@@ -38,6 +23,7 @@ services:
     environment:
       - SUB_STORE_FRONTEND_BACKEND_PATH=/2cXaAxRGfddmGz2yx1wA
       - SUB_STORE_BACKEND_API_PORT=3002
+      - SUB_STORE_BACKEND_MERGE=true
     ports:
       - "3002:3002"
     volumes:
@@ -83,17 +69,11 @@ services:
       - ./data/gpt-load:/app/data
     env_file:
       - ./config/gpt-load/.env
+    ports:
+      - "3001:3001"
     healthcheck:
       test: wget -q --spider -T 10 -O /dev/null http://localhost:${PORT:-3001}/health
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
-    network_mode: "service:network-service"
-
-  prompt-optmizier:
-    image: linshen/prompt-optimizer:latest
-    container_name: prompt-optmizier
-    restart: unless-stopped
-    ports:
-      - "28081:80"
