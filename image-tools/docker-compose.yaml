@@ -28,6 +28,7 @@ services:
       - "3002:3002"
     volumes:
       - ./data/sub-store/:/opt/app/data
+    restart: unless-stopped
 
   openlist:
     image: ghcr.io/openlistteam/openlist-git:latest-aio
@@ -42,23 +43,6 @@ services:
       - TZ=Asia/Shanghai
       - OPENLIST_ADMIN_PASSWORD=admin
     restart: unless-stopped
-
-  openviking:
-    image: ghcr.io/volcengine/openviking:latest
-    container_name: openviking
-    ports:
-      - "1933:1933"
-      - "8020:8020"
-    volumes:
-      - "./data/openviking/:/app/.openviking"
-    healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:1933/health || exit 1"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 30s
-    restart: unless-stopped
-    command: /bin/sh -c "chown -R ${UID:-1000}:${GID:-1000} /app/.openviking || true; openviking-console-entrypoint"
 
   gpt-load:
     image: ghcr.io/tbphp/gpt-load:latest
@@ -77,3 +61,22 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+  postgres:
+    image: postgres:18-alpine
+    container_name: postgres-mg
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=hindsight
+    volumes:
+      - ./data/postgres:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d hindsight"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped

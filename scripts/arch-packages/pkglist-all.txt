@@ -1,0 +1,287 @@
+# ============================================================
+# Arch Linux 已安装包完整列表 (合并 pkglist + pkglist-local)
+# 生成日期: 2026-07-06
+# 包来源: chezmoi dotfiles 推导 + pacman -Qqen 显式安装
+# 组织: CLI / GUI → 功能分类
+# ============================================================
+
+# ============================================================
+#  CLI / TUI（终端运行，无独立窗口）
+# ============================================================
+
+# --- Shell 及增强 ---
+fish                           # 主力 shell
+zsh                            # 备用 shell
+starship                       # 跨 shell 提示符
+fzf                            # 模糊搜索
+zoxide                         # 智能 cd
+navi                           # 交互式 cheatsheet
+zsh-completions                # zsh 补全扩展
+
+# --- 终端多路复用 ---
+zellij                         # 终端多路复用 (替代 tmux)
+
+# --- 编辑器 (TUI) ---
+neovim                         # 主力编辑器 (AstroNvim 配置)
+
+# --- 版本控制 ---
+git                            # 版本控制
+jujutsu                        # 新一代 VCS (jj)
+lazyjj                         # jj TUI 客户端
+gitui                          # Git TUI
+lazygit                        # Git TUI
+difftastic                     # 结构化 diff
+git-delta                      # git diff 美化
+
+# --- 文件管理 (TUI) ---
+yazi                           # 终端文件管理器
+
+# --- 系统仪表盘 (TUI) ---
+fastfetch                      # 系统信息
+btop                           # 资源监视器
+bottom                         # 图形化进程/系统监视
+
+# --- 备份 ---
+restic                         # 快照备份
+resticprofile                  # restic 配置管理
+
+# --- 文档处理 ---
+typst                          # 现代排版系统
+typstyle                       # Typst 格式化
+pandoc-bin                     # 文档格式转换
+
+# --- 多媒体 (CLI) ---
+ffmpegthumbnailer              # 视频缩略图
+imagemagick                    # 图像处理
+mediainfo                      # 媒体信息
+chafa                          # 终端图片显示
+ueberzugpp                     # 终端图片渲染 (Wayland)
+mplayer                        # 命令行播放器
+yt-dlp                         # 视频下载
+zbar                           # 二维码/条码识别
+cava                           # 终端音频可视化
+
+# --- 网络工具 ---
+mtr                            # 网络诊断
+iperf3                         # 网络性能测试
+openbsd-netcat                 # 网络工具
+wget                           # 下载
+rsync                          # 文件同步
+rclone                         # 云存储同步
+caddy                          # Web 服务器
+aria2                          # 多协议下载
+
+# --- 压缩 & 归档 ---
+7zip                           # 7z 压缩
+ouch                           # 多格式解压缩
+unarchiver                     # 归档解包
+unzip                          # ZIP 解压
+zsync                          # 增量下载
+
+# --- OCR ---
+tesseract                      # OCR 引擎
+tesseract-data-eng             # 英文 OCR 数据
+
+# --- 开发工具 ---
+dotnet-sdk                     # .NET SDK
+gdb                            # 调试器
+github-cli                     # GitHub CLI
+jq                             # JSON 处理
+yq                             # YAML 处理
+uv                             # Python 包管理
+python-pipx                    # Python 应用隔离安装
+luarocks                       # Lua 包管理
+perl-nix                       # Perl 集成
+sd                             # 直观的 find & replace
+devtools                       # Arch 打包工具
+namcap                         # PKGBUILD 检查
+archlinuxcn-keyring            # archlinuxcn 密钥环
+inotify-tools                  # 文件变动监控
+chezmoi                        # dotfiles 管理
+mise                           # 多语言版本管理
+
+# --- 加密 & 安全 ---
+age                            # 简单加密
+
+# --- 杂项 CLI ---
+evtest                         # 输入设备事件
+xclip                          # X11 剪贴板
+translate-shell                # (未列出，如有需补充)
+
+# ============================================================
+#  GUI（图形窗口应用）
+# ============================================================
+
+# --- 终端模拟器 ---
+wezterm                        # 主力终端模拟器
+alacritty                      # GPU 加速备选终端
+konsole                        # KDE 终端
+
+# --- 编辑器 & IDE ---
+neovide                        # Neovim GUI 前端
+kate                           # KDE 高级文本编辑器
+meld                           # 可视化 diff/merge
+kdiff3                         # 三路 diff/merge
+
+# --- 笔记 & 知识库 ---
+obsidian                       # 知识库笔记
+zettlr                         # Markdown 编辑器
+
+# --- Wayland 桌面环境 ---
+niri                           # 滚动式平铺合成器
+dms-shell-niri                 # niri 显示管理
+xwayland-satellite             # XWayland rootful
+
+# --- Wayland 桌面组件 ---
+grim                           # 截图
+slurp                          # 选区
+wl-clipboard                   # 剪贴板
+wf-recorder                    # 录屏
+wl-kbptr                       # 键盘模拟鼠标
+swaybg                         # 壁纸
+hyprlock                       # 锁屏
+cliphist                       # 剪贴板历史
+copyq                          # 剪贴板管理器
+wev                            # Wayland 事件查看
+wlr-randr                      # 显示输出管理
+playerctl                      # 媒体播放控制
+brightnessctl                  # 亮度控制
+awww                           # 动态壁纸
+waylyrics-git                  # 桌面歌词
+matugen                        # 壁纸取色生成主题
+nwg-look                       # GTK 主题配置
+satty                          # 截图标注工具
+
+# --- 桌面应用 ---
+firefox                        # 浏览器
+betterbird-bin                  # 邮件客户端
+telegram-desktop               # 即时通讯
+element-desktop                # Matrix 客户端
+obs-studio                     # 录屏/直播
+vlc                            # 视频播放器
+mpv                            # 媒体播放器
+steam                          # 游戏平台
+keepassxc                      # 密码管理器
+onlyoffice-bin                  # 办公套件
+kdenlive                       # 视频编辑
+netease-cloud-music-gtk4        # 网易云音乐
+oculante                       # 图片查看器
+koodo-reader-bin               # 电子书阅读
+seahorse                       # 密钥管理 GUI
+
+# --- KDE 应用 ---
+dolphin                        # 文件管理器
+gwenview                       # 图片查看
+okular                         # 文档查看
+ark                            # 压缩工具
+kdeconnect                     # 手机联动
+kwalletmanager                 # KDE 钱包管理
+sddm                           # 显示管理器
+
+# --- 音频 GUI ---
+easyeffects                    # 音频效果器
+helvum                         # PipeWire 连接图
+pavucontrol                    # 音频控制面板
+
+# --- 输入法 ---
+fcitx5-im                      # 输入法元包 (fcitx5 + configtool + gtk + qt)
+fcitx5-chinese-addons          # 中文输入
+fcitx5-material-color          # Material 主题
+fcitx5-rime                    # Rime 引擎
+
+# --- 网络分析 ---
+wireshark-qt                   # 网络协议分析
+
+# ============================================================
+#  系统基础（内核/固件/驱动/服务 — 无直接交互界面）
+# ============================================================
+
+# --- 内核 & 固件 ---
+base                           # 基础包组
+base-devel                     # 开发包组
+linux                          # 内核
+linux-firmware                 # 固件
+amd-ucode                      # AMD 微码
+
+# --- 引导 ---
+grub                           # 引导器
+efibootmgr                     # EFI 启动管理
+os-prober                      # 多系统检测
+
+# --- 文件系统 ---
+btrfs-progs                    # Btrfs 工具
+grub-btrfs                     # Btrfs 快照引导
+timeshift                      # 系统快照
+ntfs-3g                        # NTFS 支持
+nfs-utils                      # NFS 支持
+
+# --- 网络 & 蓝牙服务 ---
+networkmanager                 # 网络管理
+bluez                          # 蓝牙协议栈
+bluez-utils                    # 蓝牙工具
+ntp                            # 时间同步
+
+# --- 音频服务 ---
+pipewire-audio                 # 音频服务
+pipewire-pulse                 # PulseAudio 兼容
+wireplumber                    # 音频会话管理
+sof-firmware                   # SOF 音频固件
+alsa-firmware                  # ALSA 固件
+gst-libav                      # GStreamer libav
+gst-plugin-gtk                 # GStreamer GTK
+gst-plugin-pipewire            # GStreamer PipeWire
+
+# --- 容器 & 虚拟化 ---
+docker                         # 容器引擎
+docker-buildx                  # 多平台构建
+docker-compose                 # 编排
+slirp4netns                    # 非 root 网络
+flatpak                        # Flatpak 运行时
+fuse-overlayfs                 # FUSE overlayfs
+qemu-full                      # 全系统模拟
+
+# --- 打印 ---
+cups                           # 打印服务
+
+# --- 桌面集成服务 ---
+xdg-desktop-portal             # 桌面门户
+xdg-desktop-portal-gnome       # GNOME 门户后端
+xdg-desktop-portal-gtk         # GTK 门户后端
+gnome-keyring                  # 密钥环守护
+gvfs                           # 虚拟文件系统
+
+# --- 库 & 运行时 ---
+fontconfig                     # 字体配置
+openssh                        # SSH
+webkitgtk-6.0                  # WebKit GTK
+qt5-tools                      # Qt5 工具
+qt6-websockets                 # Qt6 WebSocket
+libappindicator                # 托盘图标
+libkeybinder3                  # 全局快捷键
+appmenu-gtk-module             # GTK 全局菜单
+postgresql-libs                # PostgreSQL 客户端库
+
+# ============================================================
+#  字体 & 主题
+# ============================================================
+
+# --- 字体 ---
+noto-fonts-cjk                 # 中日韩
+noto-fonts-emoji               # Emoji
+noto-fonts-extra               # Noto 扩展
+adobe-source-han-serif-cn-fonts # 思源宋体
+inter-font                     # Inter
+ttf-dejavu                     # DejaVu
+ttf-harmonyos-sans             # HarmonyOS Sans
+ttf-lxgw-wenkai                # LXGW WenKai
+ttf-maplemono-nf-cn-unhinted    # Maple Mono CN
+ttf-maplemono-nf-unhinted       # Maple Mono NF
+ttf-wps-fonts                  # WPS 字体
+wqy-microhei                   # 文泉驿微米黑
+wqy-zenhei                     # 文泉驿正黑
+otf-font-awesome               # Font Awesome
+ttf-fluent-emoji               # 微软emoji
+
+# --- 图标 & 主题 ---
+papirus-icon-theme             # Papirus 图标
+adw-gtk-theme                  # GNOME Web GTK 主题

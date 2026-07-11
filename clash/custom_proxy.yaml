@@ -1,5 +1,5 @@
 payload:
-  - rouman5.com
+  - +.rouman5.com
   - 5bx6h.net
   - enetsub.egeturl.com
   - +.oplist.org
@@ -11,9 +11,10 @@ payload:
   - +.9y01.xyz
   - +.z-library.rs
   - packages.microsoft.com
-  - johnvansickle.com
-  - annas-archive.org
-  - sex-positions.online
+  - +.johnvansickle.com
+  - +.annas-archive.org
+  - +.fifloled.com
+  - +.sex-positions.online
   - +.betterbird.eu
   - +.nushell.sh
   - +.pola.rs

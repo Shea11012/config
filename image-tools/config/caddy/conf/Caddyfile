@@ -50,6 +50,8 @@
 	}
 
 	handle /debug {
-		respond "path: {path}, uri: {uri}"
+#		header Content-Type "application/json; charset=utf-8"
+		templates
+		respond `{{toRawJson .Req.Header}}` 200
 	}
 }
