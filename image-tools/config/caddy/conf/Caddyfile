@@ -19,10 +19,14 @@
 
 	handle_path /upload {
 		upload {
-			root_dir /srv
-			dest_dir_field_name upload_dir
+			dest_dir /srv
 			response_template templates/upload-resp-template.txt
 		}
+	}
+
+	# CPA Manager
+	handle_path /cpa* {
+		redir http://{http.request.host}:18317{uri} permanent
 	}
 
 	# gpt-load - 重定向到直接端口
@@ -33,16 +37,6 @@
 	# openlist - 重定向到直接端口
 	handle_path /openlist* {
 		redir http://{http.request.host}:5244{uri} permanent
-	}
-
-	# openviking API - 重定向到直接端口
-	handle_path /viking/api* {
-		redir http://{http.request.host}:1933{uri} permanent
-	}
-
-	# openviking web UI - 重定向到直接端口
-	handle_path /viking* {
-		redir http://{http.request.host}:8020{uri} permanent
 	}
 
 	handle_path /sub-store {
