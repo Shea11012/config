@@ -45,25 +45,6 @@ services:
       - OPENLIST_ADMIN_PASSWORD=admin
     restart: unless-stopped
 
-  cli-proxy-api:
-    image: eceasy/cli-proxy-api:latest
-    container_name: cli-proxy-api
-    restart: unless-stopped
-    ports:
-      - "8317:8317"
-    volumes:
-      - cpa-data:/app/data
-      - ./config/cli-proxy-api/config.yaml:/CLIProxyAPI/config.yaml
-
-  cpa-manager-plus:
-    image: seakee/cpa-manager-plus:latest
-    container_name: cpa-manager-plus
-    restart: unless-stopped
-    ports:
-      - "18317:18317"
-    volumes:
-      - cpa-manager-plus-data:/data
-
   postgres:
     image: postgres:18-alpine
     container_name: postgres-mg
