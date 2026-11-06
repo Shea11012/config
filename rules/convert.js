@@ -22,13 +22,13 @@ const ipRuleProvider = (url) => defaultRuleProvider(url, "ipcidr");
 const ruleProviders = {
 	"custom-proxy": {
 		...domainRuleProvider(
-			"http://arch.local/assets/clash/custom_proxy.yaml",
+			"http://arch.local/assets/rules/custom_proxy.yaml",
 		),
 		format: "yaml",
 	},
 	"custom-direct": {
 		...domainRuleProvider(
-			"http://arch.local/assets/clash/custom-direct.yaml",
+			"http://arch.local/assets/rules/custom-direct.yaml",
 		),
 		format: "yaml",
 	},

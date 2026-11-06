@@ -79,19 +79,8 @@
 		header @imageproxy Cache-Control "max-age=604800, public"
 		header @static Cache-Control "max-age=31536000, public, immutable"
 	}
-	handle /openwrt {
-		redir http://192.168.32.100:8080
-	}
-
-	handle /alist {
-		redir http://192.168.32.100:5244
-	}
-
 	handle /assets/* {
 		file_server browse
 	}
 
-	handle /mihomo {
-		redir http://192.168.32.100:9090/ui/#/proxies	
-	}
 }

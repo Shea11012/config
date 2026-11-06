@@ -13,6 +13,11 @@
 
 :80 {
 	handle_path /assets/* {
+		# 兼容规则文件整理前的订阅地址，文件统一存放于 /srv/rules。
+		@legacyClash path /clash/*
+		uri @legacyClash replace /clash/ /rules/
+		@legacySubStore path /rules/sub-store/*
+		uri @legacySubStore replace /rules/sub-store/ /rules/
 		root * /srv
 		file_server browse
 	}
